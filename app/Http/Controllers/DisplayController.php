@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Controllers\Controller;
 use App\Display;
 use Illuminate\Http\Request;
 
@@ -12,11 +14,11 @@ class DisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index () 
     {
-        //
+        $displays = Display::all();
+        return view('index', ['displays' => $displays]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

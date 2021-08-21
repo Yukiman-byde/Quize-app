@@ -15,6 +15,12 @@ class CreateDisplaysTable extends Migration
     {
         Schema::create('displays', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->text('description');
+            $table->text('video');
+            $table->string('thumbnail');
+            $table->integer('quize_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
