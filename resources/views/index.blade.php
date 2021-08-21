@@ -8,6 +8,9 @@
             <p>
                 {{ $display->name }},
                 {{ $display->description }}
+               <img src="{{ $display->thumbnail}}">
+               
+                カテゴリー：{{ $display->category->name }}
             </p>
         @endforeach
 @endsection
