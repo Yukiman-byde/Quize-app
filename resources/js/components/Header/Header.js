@@ -14,7 +14,7 @@ export default function Header (){
       <div className="header">
          <Grid container className="container">
            <Grid item xs={3}>
-           <a href="/displays"><h2 className="char">Learning Japanese</h2></a>
+             <a href="/displays"><h2 className="char">Learning Japanese</h2></a>
            </Grid>
            <Grid item xs={5}></Grid>
            <Grid className="header__right" item xs={4}>
