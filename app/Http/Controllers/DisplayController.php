@@ -14,7 +14,7 @@ class DisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index () 
+     public function index() 
     {
         $displays = Display::all();
         return view('index', ['displays' => $displays]);
@@ -46,9 +46,10 @@ class DisplayController extends Controller
      * @param  \App\Display  $display
      * @return \Illuminate\Http\Response
      */
-    public function show(Display $display)
+    public function show($id)
     {
-        //
+        $display = Display::find($id);
+        return view('show', ['display' => $display]);
     }
 
     /**
@@ -57,9 +58,10 @@ class DisplayController extends Controller
      * @param  \App\Display  $display
      * @return \Illuminate\Http\Response
      */
-    public function edit(Display $display)
+    public function edit($id)
     {
-        //
+        $display = Display::find($id);
+        return view('quize', ['display' => $display]);
     }
 
     /**
