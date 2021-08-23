@@ -83222,6 +83222,8 @@ __webpack_require__(/*! ./components/Header/Index */ "./resources/js/components/
 
 __webpack_require__(/*! ./components/Display/Index */ "./resources/js/components/Display/Index.js");
 
+__webpack_require__(/*! ./components/Show/Index */ "./resources/js/components/Show/Index.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -83843,6 +83845,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('header'));
+
+/***/ }),
+
+/***/ "./resources/js/components/Show/Index.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/Show/Index.js ***!
+  \***********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+
+ // import Show from './Show';
+
+function Show() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "hello world");
+}
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Show, null), document.getElementById('show'));
 
 /***/ }),
 
