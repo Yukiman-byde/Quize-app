@@ -13,12 +13,12 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
-            'name' => 'News 19/08/2021',
-            'description' => 'コロナ感染者数',
-            'video' => 'https://www.youtube.com/embed/iUs6jSJ0up8?start=0&end=28',
-            'thumbnail' => 'https://i.ytimg.com/vi/iUs6jSJ0up8/mqdefault.jpg',
-            'quize_id' => '1',
-            'category_id' => '1',
+            'name' => '千鳥(tidori)',
+            'description' => 'ノブ！元気を出そう！',
+            'video' => 'https://www.youtube.com/embed/s7aCgy_zXrk',
+            'thumbnail' => 'https://i.ytimg.com/vi/s7aCgy_zXrk/mqdefault.jpg',
+            'quize_id' => '5',
+            'category_id' => '2',
             ]);
     }
 }

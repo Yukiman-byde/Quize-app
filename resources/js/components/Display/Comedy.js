@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect }  from 'react';
 import './Display_card.css';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function Display_card(){
+export default function Comedy(){
     const [data, setdata] = useState([]);
     useEffect(() => {
       axios.get('/displays/json').then(response =>{

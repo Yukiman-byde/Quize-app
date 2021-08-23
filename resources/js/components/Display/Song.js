@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect }  from 'react';
 import './Display_card.css';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
@@ -9,13 +9,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 
+
 const useStyles = makeStyles({
     root:{
         maxWidth: 500,
     },
 });
 
-export default function Display_card(){
+export default function Song(){
     const [data, setdata] = useState([]);
     useEffect(() => {
       axios.get('/displays/json').then(response =>{
