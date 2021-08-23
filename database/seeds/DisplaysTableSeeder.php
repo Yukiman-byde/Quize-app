@@ -13,7 +13,7 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
-          'name' => 'News 19/08/2021',
+            'name' => 'News 19/08/2021',
             'description' => 'コロナ感染者数',
             'video' => 'https://www.youtube.com/embed/iUs6jSJ0up8?start=0&end=28',
             'thumbnail' => 'https://i.ytimg.com/vi/iUs6jSJ0up8/mqdefault.jpg',
