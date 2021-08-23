@@ -40,8 +40,6 @@ class DisplayController extends Controller
         $quize = $request->quizzes_outcome;
         return view('outcome', ['quize' => $quize]);
     }
-    
-
     /**
      * Store a newly created resource in storage.
      *
