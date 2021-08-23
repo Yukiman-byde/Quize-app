@@ -10,14 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/displays/json', 'DisplayController@json');
+Route::get('/displays/json/{id}', 'DisplayController@json');
 
 Route::get('/', function () {
    return redirect('/displays');
 });
 
-Route::get('/displays', 'DisplayController@index')->name('display.index');
-Route::get('/display/{id}', 'DisplayController@show')->name('display.show');
-Route::get('/display/{id}/quize', 'DisplayController@edit')->name('display.quize');
+Route::get('/display', 'DisplayController@index')->name('display.index');
+Route::get('/outcome', 'DisplayController@outcome')->name('display.outcome');
+Route::get('/{id}', 'DisplayController@show')->name('display.show');
+Route::get('/{id}/quize', 'DisplayController@edit')->name('display.quize');
 
 Auth::routes();
 

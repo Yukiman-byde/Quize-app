@@ -19,14 +19,26 @@ class DisplayController extends Controller
         $displays = Display::all();
         return view('index', ['displays' => $displays]);
     }
+    
+     public function json($id = -1){
+        if ($id == -1)
+        { 
+            return Display::get()->toJson();
+        } 
+        else {
+            return Display::find($id)->toJson();
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+   
+     public function outcome(Request $request)
+     {
+        $quize = $request->quizzes_outcome;
+        return view('outcome', ['quize' => $quize]);
     }
 
     /**

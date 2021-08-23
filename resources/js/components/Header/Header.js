@@ -9,6 +9,14 @@ import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import './Header.css';
 
+const useStyle = makeStyles({
+    root: {
+        background: 'linear-gradient(#00BAD8 0%,#018BF1 99%)',
+    }
+});
+
+
+
 export default function Header (){
   return(
       <div className="header">
