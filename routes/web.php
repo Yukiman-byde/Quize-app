@@ -14,7 +14,7 @@ Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
 
 Route::get('/', function () {
-   return redirect('/displays');
+   return redirect('/display');
 });
 
 
