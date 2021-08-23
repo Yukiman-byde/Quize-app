@@ -17,6 +17,7 @@ Route::get('/', function () {
    return redirect('/displays');
 });
 
+
 Route::get('/display', 'DisplayController@index')->name('display.index');
 Route::get('/outcome', 'DisplayController@outcome')->name('display.outcome');
 Route::get('/{id}', 'DisplayController@show')->name('display.show');

@@ -19,13 +19,17 @@
   <h3>Choose a correct answer</h3>
   
   <p>Transcription</p>
-  <p id="co_ans">{{ $display->quize->answer }}</p>
-  
+
+ 
+
+  <p>{{ $display->quize->answear }}</p><br>
+ 
   <p>
       <h1>1.{{ $display->quize->question }}</h1>
       <br>
       <br>
-       <form id="form1" action="{{ route('display.outcome')}}">
+
+       <form id="form1" action="{{ route('display.outcome') }}"
            @csrf
           <input type="radio" name="quizzes" value=1>{{ $display->quize->choice1 }}<br>
           <input type="radio" name="quizzes" value=2>{{ $display->quize->choice2 }}<br>
@@ -33,6 +37,7 @@
           <input type="submit" value="選択" onclick="myCheck();">
           <input id="putin" type="hidden" name="quizzes_outcome" value="">
        </form>
+
  　　　
  <script>
       function myCheck() {
@@ -52,23 +57,6 @@
          console.log(count);
          document.getElementById('putin').value = count;
       }
-      
-     
-    
-    //   document.getElementById('putin').value = count;
-      
-      
-        
-    //      const correct_answer = {{ $display->quize->correct_answer }};
-    //     // elements にはボタンの要素も含まれてしまうため -1 しています
-      
-    //       if (correct_answer === e.value) {
-    //       alert('正解です');
-    //       break;
-    //       } else alert('不正解です');
-    //   }
-      
 </script>
-  
-  
+
 @endsection

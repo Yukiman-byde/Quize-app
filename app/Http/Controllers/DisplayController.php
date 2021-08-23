@@ -40,6 +40,12 @@ class DisplayController extends Controller
         $quize = $request->quizzes_outcome;
         return view('outcome', ['quize' => $quize]);
     }
+    
+    public function outcome(Request $request)
+    {
+        $quize = $request->quizzes_outcome;
+        return view('outcome', ['quize' => $quize]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -73,6 +79,7 @@ class DisplayController extends Controller
     public function edit($id)
     {
         $display = Display::find($id);
+        
         return view('quize', ['display' => $display]);
     }
 
