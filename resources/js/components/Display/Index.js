@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
-import Display from './Display';
+import Display from './Display'
 
 
-ReactDOM.render(
-    <Display />,
-    document.getElementById('display'),
-    )
+if(document.getElementById('display')){
+    ReactDOM.render(
+        <Display />,
+        document.getElementById('display'),
+        );
+}
