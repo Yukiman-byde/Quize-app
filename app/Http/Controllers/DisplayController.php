@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Display;
+use App\Category;
 use Illuminate\Http\Request;
 
 class DisplayController extends Controller
@@ -27,6 +28,16 @@ class DisplayController extends Controller
         } 
         else {
             return Display::find($id)->toJson();
+        }
+    }
+    
+    public function categories($id = -1){
+        if ($id == -1)
+        { 
+            return Category::get()->toJson();
+        } 
+        else {
+            return Category::find($id)->toJson();
         }
     }
     /**

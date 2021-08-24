@@ -1,49 +1,45 @@
 import React from 'react';
-import Comedy from './Comedy';
-import Song from './Song';
+import Learn from './Learn';
+import { makeStyles } from '@material-ui/core/styles';
 import Display_card from './Display_card';
 import Typography from '@material-ui/core/Typography';
 
-import './Display.css';
+const useStyles = makeStyles({
+　　back: {
+　　  background: '#EBEFF3',
+　　  padding: '50px 20px',
+　　},
+　　char: {
+　　    marginBottom: '50px',
+　　    textDecoration: 'underline',
+　　    color: '#1E8C99',
+　　}
+});
 
-function Display(){
+
+export default function Display(){
+    const classes = useStyles();
     return(
         <div>
-             <Typography 
-              variant="h2"
-              color="primary"
-              align="center"
-             >
-              Access To Real Japan
-             </Typography>
-            <div className="dis__container">
-              <Display_card />
-            </div>
-            <Typography 
-              variant="h2"
-              color="primary"
-              align="center"
-             >
-              Japanese Comedy Show
-             </Typography>
-             <div className="dis__container">
-              <Comedy />
-             </div>
-             <Typography 
-              variant="h2"
-              color="primary"
-              align="center"
-             >
-              Japanses Song
-             </Typography>
-             <div className="dis__container">
-              <Song />
-             </div>
+           <div className={classes.back}>
+                <Typography 
+                      className={classes.char}
+                      variant="h2"
+                      align="center"
+                     >
+                  Access To Real Japan
+                </Typography>
+                <div>
+                   <Display_card/>
+                </div>
+           </div>
+           <div>
+             <Learn />
+           </div>
         </div>
         );
 }
 
-export default Display
 
 
 

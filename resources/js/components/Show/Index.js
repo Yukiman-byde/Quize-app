@@ -9,7 +9,9 @@ function Show(){
 }
 
 
-ReactDOM.render(
+if(document.getElementById('show')){
+    ReactDOM.render(
     <Show />,
     document.getElementById('show'),
-    )
+    );
+}
