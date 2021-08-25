@@ -12,7 +12,7 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert(
-            ['name' => '歌',]
+            ['name' => '若者言葉(slang)'],
             );
     }
 }
