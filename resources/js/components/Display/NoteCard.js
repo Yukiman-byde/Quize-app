@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,57 +10,33 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles({
     back: {
-        background: '#fefefe',
-        borderRadius: '5px',
-        marginTop: 50,
+        backgroundImage: 'url(./image/study.png)',
+        backgroundSize: 'cover',
+        backgroundRepeat:  'no-repeat', 
+        backgroundPosition: 'center', 
+        height: '400px',
     },
     card:{
         margin: '30px',
         textAlign: 'center',
-        height: 380,
-        transition: '1s',
-        cursor: 'pointer',
-    '&:hover':{
-          transform: 'translateY(-15px)',
-       },
-    },
-    carte: {
-        height: 300,
-        maxWidth: 330,
-    },
-    couloir: {
-        color: '#797171',
-        fontSize: 'bold',
     }
 });
 
-export default function NoteCard({ title, src }){
-     const [data, setData] = useState([]);
-    
-    useEffect(()=>{
-        axios.get('/categories/json')
-        .then(res=> {
-            setData(res.data);
-        });
-    }, []);
+export default function NoteCard({ title }){
     const classes = useStyles();
     return(
-        <div className={classes.back}>
          <Card elevation={2} className={classes.card}>
                <CardHeader
-               className={classes.couloir}
                 title={title.name}
                />
               <CardActionArea>
                     <CardMedia
-                    className={classes.carte}
                     component="img"
                     alt="categories"
-                    src={title.picture}
+                    src="https://i.ytimg.com/vi/ZqbZauXC9_Y/mqdefault.jpg"
                     >
                     </CardMedia>
               </CardActionArea>
            </Card>
-         </div>
         );
 }
