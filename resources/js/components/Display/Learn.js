@@ -55,7 +55,7 @@ export default function Learn(){
                  <Grid container>
                    {data.map((i)=>{
                         return(
-                       <NoteCard key={i.id} title={i} />
+                       <NoteCard key={i.id} title={i}/>
                         );
                     })}
                  </Grid>
