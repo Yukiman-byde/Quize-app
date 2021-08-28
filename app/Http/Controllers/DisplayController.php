@@ -17,12 +17,22 @@ class DisplayController extends Controller
      */
      public function index() 
     {
-        $displays = Display::all();
-        return view('index', ['displays' => $displays]);
+        return view('index');
     }
     
      public function json($id = -1){
-        if ($id == -1)
+        // if ($id == -1)
+        // { 
+        //  $display = new Display;
+        //  $display = $display->get();
+        //  return response()->json(['data' => $display]);
+        // } 
+        // else {
+        //   $display = new Display;
+        //   $display = $display::find($id);
+        //  return response()->json(['data' => $display]);
+        // }
+          if ($id == -1)
         { 
             return Display::get()->toJson();
         } 
@@ -68,11 +78,15 @@ class DisplayController extends Controller
      * @param  \App\Display  $display
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
+        // dd($request);
         $display = Display::find($id);
         return view('show', ['display' => $display]);
+      
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.
