@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Display;
 use App\Category;
+use App\Quize;
 use Illuminate\Http\Request;
 
 class DisplayController extends Controller
@@ -15,23 +16,8 @@ class DisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-     public function index() 
-    {
-        return view('index');
-    }
     
-     public function json($id = -1){
-        // if ($id == -1)
-        // { 
-        //  $display = new Display;
-        //  $display = $display->get();
-        //  return response()->json(['data' => $display]);
-        // } 
-        // else {
-        //   $display = new Display;
-        //   $display = $display::find($id);
-        //  return response()->json(['data' => $display]);
-        // }
+    public function json($id = -1){
           if ($id == -1)
         { 
             return Display::get()->toJson();
@@ -50,11 +36,25 @@ class DisplayController extends Controller
             return Category::find($id)->toJson();
         }
     }
+    
+    public function quize($id = -1){
+        if ($id == -1)
+        { 
+            return Quize::get()->toJson();
+        } 
+        else {
+            return Quize::find($id)->toJson();
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+         public function index() 
+        {
+            return view('index');
+        }
    
      public function outcome(Request $request)
      {
@@ -100,6 +100,7 @@ class DisplayController extends Controller
         
         return view('quize', ['display' => $display]);
     }
+    
 
     /**
      * Update the specified resource in storage.

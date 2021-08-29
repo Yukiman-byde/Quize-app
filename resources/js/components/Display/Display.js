@@ -13,6 +13,10 @@ const useStyles = makeStyles({
 　　    marginBottom: '50px',
 　　    textDecoration: 'underline',
 　　    color: '#1E8C99',
+　　},
+　　card: {
+　　    display: 'flex',
+　　    margin: '50px'
 　　}
 });
 
@@ -29,7 +33,7 @@ export default function Display(){
                      >
                   Access To Real Japan
                 </Typography>
-                <div>
+                <div className={classes.card}>
                    <Display_card/>
                 </div>
            </div>

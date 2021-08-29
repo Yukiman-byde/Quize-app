@@ -13,12 +13,12 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
-            'name' => '千鳥(tidori)',
-            'description' => 'ノブ！元気を出そう！',
-            'video' => 'https://www.youtube.com/embed/s7aCgy_zXrk',
-            'thumbnail' => 'https://i.ytimg.com/vi/s7aCgy_zXrk/mqdefault.jpg',
-            'quize_id' => '5',
-            'category_id' => '2',
+            'name' => 'How to write hiragana',
+            'description' => 'We are going to learn how to write hiragana correctly, from　あ to お',
+            'video' => 'https://youtu.be/r25L_JwPSJc',
+            'thumbnail' => 'https://i.ytimg.com/vi/r25L_JwPSJc/mqdefault.jpg',
+            'quize_id' => '3',
+            'category_id' => '4',
             ]);
     }
 }

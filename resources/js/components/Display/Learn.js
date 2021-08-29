@@ -30,16 +30,6 @@ export default function Learn(){
         });
     }, []);
     
-    //     const [data, setdata] = useState([]);
-    
-//     useEffect(() => {
-//       axios.get('/displays/json').then(response =>{
-//           setdata(response.data);
-//       }).catch(error => {
-//           console.log(error);
-//       });
-//   }, []);
-    
     const classes = useStyles();
     return(
         <div>

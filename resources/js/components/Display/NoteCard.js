@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 const useStyles = makeStyles({
     card:{
         margin: '30px',
+        marginBottom: '100px',
         marginTop: '100px',
         textAlign: 'center',
               height: 380,

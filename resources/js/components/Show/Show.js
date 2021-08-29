@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ShowComponent from './ShowComponent';
 import ShowName from './ShowName';
 import ShowImage from './ShowImage';
 import axios from 'axios';
@@ -7,14 +8,12 @@ import { makeStyles } from '@material-ui/core/styles';
 //cssスタイル（全体）
 const useStyles = makeStyles({
     centre: {
-        height: '75vh',
-        margin: '50px 100px',
+        marginRight: 'auto',
+        marginLeft: 'auto',
+        alignItems: 'center',
         padding: '0 20px',
         display: 'flex',
         flexDirection: 'column',
-    },
-    text: {
-        textAlign: 'right',
     },
 })
 
@@ -40,9 +39,10 @@ export default function Show(){
     }, []);
    return(
        <div className={classes.centre}>
-          <ShowName className={classes.text} title={data}/>
-          <ShowImage src={data}/>
-          <a href="" style={{ marginTop: 30 }}>Genre: {category.name}</a>
+          <ShowName title={data}/>
+          <ShowImage className={classes.img} src={data}/>
+          <a href="">Genre: {category.name}</a>
+          <ShowComponent className={classes.button}/>
        </div>
    );
     
