@@ -10,8 +10,7 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      margin: theme.spacing(5),
-      marginLeft: 300,
+      margin: theme.spacing(3),
       padding: '15px',
       whiteSpace: 'noWrap',
       background: 'linear-gradient(60deg, rgba(9,119,121,1) 3%, rgba(0,161,255,1) 52%)',
@@ -20,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
   　layout: {
 　    textAlign: 'center',
+　     display: 'flex',
+     margin: 65,
   　}
 }));
 
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ShowComponent(){
     let num = window.location.pathname;
     document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("quize").setAttribute("href", document.getElementById("quize").getAttribute("href") + num + "/quize");
+        document.getElementById("question").setAttribute("href", document.getElementById("question").getAttribute("href") + num);
     }, false);
     
     const classes = useStyles();
@@ -35,12 +36,12 @@ export default function ShowComponent(){
     return(
         <div className={classes.layout}>
             <div className={classes.root}>
-               <Button variant="outlined" color="primary" href="/display" id="quize">
+               <Button variant="outlined" color="primary" href="/question" id="question">
                 Are You Ready ?
                </Button>
             </div>
              <div className={classes.root}>
-               <Button variant="outlined" color="primary" href="/" id="quize">
+               <Button variant="outlined" color="primary" href="/" id="question">
                 Back To Home
                </Button>
             </div>

@@ -12,7 +12,10 @@
 */
 Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
-Route::get('/show/{id}', 'DisplayController@json');
+Route::get('question/displays/json/{id}', 'DisplayController@json');
+// Route::get('/show/{id}', 'DisplayController@json');
+
+Route::get('question/quize/json/{id}', 'DisplayController@quize');
 
 Route::get('/categories/json', 'DisplayController@categories');
 Route::get('/categories/json/{id}', 'DisplayController@categories');
@@ -25,7 +28,7 @@ Route::get('/', function () {
 Route::get('/display', 'DisplayController@index')->name('display.index');
 Route::get('/outcome', 'DisplayController@outcome')->name('display.outcome');
 Route::get('/{id}', 'DisplayController@show')->name('display.show');
-Route::get('/display/{id}/quize', 'DisplayController@edit')->name('display.quize');
+Route::get('/question/{id}', 'DisplayController@edit')->name('display.quize');
 
 Auth::routes();
 

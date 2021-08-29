@@ -1,11 +1,13 @@
 import React from 'react';
+import { IconButton } from '@material-ui/core';
 import './HeaderItem.css';
 
-export default function HeaderItem({ Icon, title }){
+export default function HeaderItem({ Icon}){
     return(
         <div className="header__Item">
-         {Icon && <Icon style={{ fontSize: 24 }} className="header__item" />}
-         <h4  style={{ fontSize: 20 }}>{title}</h4>
+         <IconButton>
+             {Icon && <Icon style={{ fontSize: 35, color: 'white' }} className="header__item" />}
+        </IconButton>
         </div>
     );
 }
