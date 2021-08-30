@@ -1,13 +1,12 @@
 import React from 'react';
 import HeaderItem from './HeaderItem';
-import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import { IconButton } from '@material-ui/core';
 import EmailIcon from '@material-ui/icons/Email';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import Link from '@material-ui/core/Link';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
@@ -48,7 +47,9 @@ export default function Header (){
               Learning Japanese
            </Typography>
             <Typography className={classes.droit}>
-             <HeaderItem Icon={HomeRoundedIcon} />
+             <Link href="/display">
+                <HeaderItem Icon={HomeRoundedIcon}/>
+             </Link>
              <HeaderItem Icon={SearchRoundedIcon}/>
              <HeaderItem Icon={EmailIcon} />
              <HeaderItem Icon={AccountCircleRoundedIcon} />

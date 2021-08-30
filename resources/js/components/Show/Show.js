@@ -23,17 +23,20 @@ export default function Show(){
     
     const [data, setData] = useState([]);
     const [category, setCategory] = useState([]);
+    
     let num =  window.location.pathname;
+    let nombre = num.match(/\d+/);
+    console.log(nombre);
+    
     
     useEffect(() => {
-        axios.get('/categories/json' + num).then(res => {
+        axios.get('/categories/json/' + nombre).then(res => {
             setCategory(res.data);
         });
     },[]);
     
-    
     useEffect(() =>{
-        axios.get('/displays/json/' + num).then(res => {
+        axios.get('/displays/json/' + nombre).then(res => {
             setData(res.data);
         });
     }, []);
