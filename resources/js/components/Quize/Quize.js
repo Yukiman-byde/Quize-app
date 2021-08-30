@@ -4,7 +4,6 @@ import ButtonAction from './ButtonAction.js';
 import Progress from './Progress.js'
 import axios from 'axios';
 import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -42,15 +41,14 @@ export default function Quize() {
     const buttonProcedure =()=>{
         setButton(true);
     }
+    let num = window.location.pathname;
+    let nombre = num.match(/\d+/);
 
 //pathnameから特定の数字だけを抜き出してURIに追加。
-    useEffect(()=>{
-        let num = window.location.pathname;
-        let nombre = num.match(/\d+/);
-         axios.get('displays/json/' + nombre).then(res => {
-            //  console.log(res.data);
-              setData(res.data);
-            });
+   useEffect(() =>{
+        axios.get('/displays/json/' + nombre).then(res => {
+            setData(res.data);
+        });
     }, []);
   
             const classes = useStyles();

@@ -34,7 +34,6 @@ const useStyles = makeStyles({
 
 export default function Display_card(){
     const [data, setdata] = useState([]);
-    
     let counter = 0;
     const maxCount = 3;
     const [category, setCategory] = useState([]);
@@ -55,12 +54,13 @@ export default function Display_card(){
   const classes = useStyles();
     return(
         data.map((i) => {
+           let url = `/display/${i.id}`;
              if(counter < maxCount){
                  counter++;
             return(
              <div className={classes.default}>
                 <Card elevation={5} key={i.id} className={classes.card}>
-                    <CardActionArea href={i.id} className={classes.root} id="display">
+                    <CardActionArea href={url} className={classes.root} id="display">
                         <CardMedia 
                         className={classes.media}
                         component="img"

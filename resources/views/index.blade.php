@@ -2,6 +2,7 @@
 
 
 @section('content')
-        <div id="display"></div>
 
+        <div id="display"></div>
+   
 @endsection

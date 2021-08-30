@@ -10,26 +10,39 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//JSONファイル
 Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
-Route::get('question/displays/json/{id}', 'DisplayController@json');
-// Route::get('/show/{id}', 'DisplayController@json');
-
-Route::get('question/quize/json/{id}', 'DisplayController@quize');
-
 Route::get('/categories/json', 'DisplayController@categories');
 Route::get('/categories/json/{id}', 'DisplayController@categories');
-
-Route::get('/', function () {
-   return redirect('/display');
-});
+Route::get('question/displays/json/{id}', 'DisplayController@json');
+Route::get('question/quize/json/{id}', 'DisplayController@quize');
 
 
-Route::get('/display', 'DisplayController@index')->name('display.index');
-Route::get('/outcome', 'DisplayController@outcome')->name('display.outcome');
-Route::get('/{id}', 'DisplayController@show')->name('display.show');
-Route::get('/question/{id}', 'DisplayController@edit')->name('display.quize');
-
+//authenticationのためのルーティング
 Auth::routes();
 
+Route::get('display/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('/', function () {
+  return redirect('display/home');
+});
+
+//ページのルーティング
+ Route::get('/display', 'DisplayController@index');
+ Route::get('/outcome', 'DisplayController@outcome')->middleware('auth');
+ Route::get('/display/{id}', 'DisplayController@show')->middleware('auth');
+ Route::get('/question/display/{id}', 'DisplayController@edit')->middleware('auth');
+
+// Auth::routes();
+
 // Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
