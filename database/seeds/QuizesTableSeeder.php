@@ -13,12 +13,12 @@ class QuizesTableSeeder extends Seeder
     {
          DB::table('quizes')->insert(
             [
-            'id' => 1,
-            'question' => '過去何番目の多さでしたか',
-            'answear' => 2,
-            'choice1' => '四番目',
-            'choice2' => '二番目',
-            'choice3' => '三番目',
+            'display_id' => 1,
+            'question' => '全国で感染者数はどれくらいでしたか？',
+            'answer' => 2,
+            'choice1' => '二万六千人',
+            'choice2' => '二万五千人',
+            'choice3' => '一万八千人'
             ]);
     }
 }

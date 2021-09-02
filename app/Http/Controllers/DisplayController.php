@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Display;
 use App\Category;
 use App\Quize;
+use App\Transcription;
 use Illuminate\Http\Request;
 
 class DisplayController extends Controller
@@ -38,12 +39,23 @@ class DisplayController extends Controller
     }
     
     public function quize($id = -1){
-        if ($id == -1)
+         if ($id == -1)
         { 
-            return Quize::get()->toJson();
+            return Display::with(['quize'])->get()->toJson();
+          
         } 
         else {
-            return Quize::find($id)->toJson();
+            return Display::with(['quize'])->find($id)->toJson();
+        }
+    }
+    
+    public function trans($id = -1){
+          if ($id == -1)
+        { 
+             return Transcription::get()->toJson();
+        } 
+        else {
+             return Transcription::find($id)->toJson();
         }
     }
     /**

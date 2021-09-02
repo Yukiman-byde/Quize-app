@@ -18,14 +18,13 @@ Route::get('/categories/json', 'DisplayController@categories');
 Route::get('/categories/json/{id}', 'DisplayController@categories');
 Route::get('question/displays/json/{id}', 'DisplayController@json');
 Route::get('question/quize/json/{id}', 'DisplayController@quize');
+Route::get('transcription/json/{id}', 'DisplayController@trans');
 
 
 //authenticationのためのルーティング
 Auth::routes();
 
 Route::get('display/home', 'HomeController@index')->name('home');
-
-
 
 Route::get('/', function () {
   return redirect('display/home');
@@ -45,4 +44,3 @@ Route::get('/', function () {
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
-

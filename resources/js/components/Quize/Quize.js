@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import Header from './Header.js';
 import LaQuestion from './LaQuestion.js';
 import ButtonAction from './ButtonAction.js';
 import Progress from './Progress.js'
 import axios from 'axios';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
+import Transcription from './Transcription.js';
 
 const useStyles = makeStyles((theme) => ({
     all: {
@@ -22,11 +24,6 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(5),
     },
   },
-    procedure: {
-     '& > *': {
-     margin: theme.spacing(6)
-    },
-  },
   right: {
       flex: '0.5',
   }
@@ -34,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Quize() {
     const [data, setData] = useState([]);
-    const [button, setButton] = useState(true);
+    const [button, setButton] = useState(false);
     const handleClose =()=>{
         setButton(false);
     }
@@ -51,28 +48,34 @@ export default function Quize() {
         });
     }, []);
   
-            const classes = useStyles();
+     const classes = useStyles();
         
     return (
-    <div className={classes.all}>
-        <div className={classes.left}>
-         <Backdrop className={classes.backdrop} open={button} onClick={handleClose}>
-            <Progress />
-          </Backdrop>
-          <div className={classes.root}>
-                <h1>{data.name}</h1>
-                <iframe width="560" height="315" src={data.video} 
-                 >
-                 </iframe>
-          </div>
-             <div className={classes.procedure}>
-                 <ButtonAction
-                 buttonProcedure={buttonProcedure}/>
-             </div>
+        <div>
+         <Header />
+            <div className={classes.all}>
+                <div className={classes.left}>
+                     <Backdrop className={classes.backdrop} open={button} onClick={handleClose}>
+                        <Progress />
+                      </Backdrop>
+                      <div className={classes.root}>
+                            <h1>{data.name}</h1>
+                            <iframe width="560" height="315" src={data.video} 
+                             >
+                             </iframe>
+                             <div className={classes.transcription}>
+                      　          <Transcription />
+                            　</div>
+                             <div>
+                                 <ButtonAction
+                                 buttonProcedure={buttonProcedure}/>
+                             </div>
+                      </div>　
+                </div>
+                <div className={classes.right}>
+                    <LaQuestion />
+                </div>
+            </div>
         </div>
-        <div className={classes.right}>
-            <LaQuestion />
-        </div>
-    </div>
         );
 }
