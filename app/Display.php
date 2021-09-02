@@ -11,6 +11,10 @@ class Display extends Model
     }
     
     public function quize() {
-        return $this->belongsTo('App\Quize', 'quize_id');
+        return $this->hasMany('App\Quize');
+    }
+    
+     public function trans() {
+        return $this->hasMany('App\Transcription');
     }
 }
