@@ -13,6 +13,7 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
+            'id' =>5,
             'name' => 'How to write hiragana',
             'description' => 'We are going to learn how to write hiragana correctly, from　あ to お',
             'video' => 'https://youtu.be/r25L_JwPSJc',

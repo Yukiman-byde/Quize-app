@@ -29,10 +29,15 @@ const useStyles = makeStyles({
     },
 });
 
-export default function NoteCard({ title, src }){
+export default function NoteCard({ title, src, url }){
     const classes = useStyles();
     return(
-         <Card elevation={2} className={classes.card}>
+        <a href={url} style={{textDecoration: 'none'}}>
+         <Card 
+         elevation={2}
+         className={classes.card}
+         href="/display"
+         >
                <CardHeader
                className={classes.couloir}
                title={title.name}
@@ -47,5 +52,6 @@ export default function NoteCard({ title, src }){
                     </CardMedia>
               </CardActionArea>
            </Card>
+          </a>
         );
 }

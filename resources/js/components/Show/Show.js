@@ -23,10 +23,11 @@ export default function Show(){
     
     const [data, setData] = useState([]);
     const [category, setCategory] = useState([]);
-    
+   
+    const url = `/category/${category.sub_name}`;
+   
     let num =  window.location.pathname;
     let nombre = num.match(/\d+/);
-    console.log(nombre);
     
     
     useEffect(() => {
@@ -40,11 +41,12 @@ export default function Show(){
             setData(res.data);
         });
     }, []);
+    
    return(
        <div className={classes.centre}>
           <ShowName title={data}/>
           <ShowImage className={classes.img} src={data}/>
-          <a href="">Genre: {category.name}</a>
+          <a href={url}>Genre: {category.name}</a>
           <ShowComponent className={classes.button}/>
        </div>
    );

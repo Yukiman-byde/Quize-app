@@ -44,8 +44,9 @@ export default function Learn(){
             <Container>
                  <Grid container>
                    {data.map((i)=>{
+                     let url = `/category/${i.sub_name}`;
                         return(
-                       <NoteCard key={i.id} title={i} src={i}/>
+                       <NoteCard key={i.id} title={i} src={i} url={url}/>
                         );
                     })}
                  </Grid>

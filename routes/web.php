@@ -11,7 +11,7 @@
 |
 */
 
-//JSONファイル
+//JSONファイル(一覧ページから)
 Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
 Route::get('/categories/json', 'DisplayController@categories');
@@ -20,6 +20,8 @@ Route::get('question/displays/json/{id}', 'DisplayController@json');
 Route::get('question/quize/json/{id}', 'DisplayController@quize');
 Route::get('transcription/json/{id}', 'DisplayController@trans');
 
+//JSON(カテゴリーページ)
+Route::get('/categories/taggin/{category}', 'CategoryController@index');
 
 //authenticationのためのルーティング
 Auth::routes();
@@ -35,6 +37,14 @@ Route::get('/', function () {
  Route::get('/outcome', 'DisplayController@outcome')->middleware('auth');
  Route::get('/display/{id}', 'DisplayController@show')->middleware('auth');
  Route::get('/question/display/{id}', 'DisplayController@edit')->middleware('auth');
+ 
+ //カテゴリーからのページのルーティング
+ Route::get('/category/News', 'CategoryController@news');
+ Route::get('/category/comedy', 'CategoryController@comedy');
+ Route::get('/category/sing', 'CategoryController@sing');
+ Route::get('/category/basic', 'CategoryController@basic'); 
+ Route::get('/category/culture', 'CategoryController@culture');
+ Route::get('/category/expression', 'CategoryController@expression');
 
 // Auth::routes();
 
