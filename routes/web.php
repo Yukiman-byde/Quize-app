@@ -14,14 +14,14 @@
 //JSONファイル(一覧ページから)
 Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
-Route::get('/categories/json', 'DisplayController@categories');
-Route::get('/categories/json/{id}', 'DisplayController@categories');
-Route::get('question/displays/json/{id}', 'DisplayController@json');
-Route::get('question/quize/json/{id}', 'DisplayController@quize');
-Route::get('transcription/json/{id}', 'DisplayController@trans');
+Route::get('/categories/json', 'DisplayController@category');
+Route::get('/categories/json/{sub_name}', 'DisplayController@categories');
+Route::get('/question/displays/json/{id}', 'DisplayController@json');
+Route::get('/question/quize/json/{id}', 'DisplayController@quize');
+Route::get('/transcription/json/{id}', 'DisplayController@trans');
 
 //JSON(カテゴリーページ)
-Route::get('/categories/taggin/{category}', 'CategoryController@index');
+Route::get('/categories/taggin/{Category}', 'CategoryController@index');
 
 //authenticationのためのルーティング
 Auth::routes();
@@ -34,9 +34,11 @@ Route::get('/', function () {
 
 //ページのルーティング
  Route::get('/display', 'DisplayController@index');
- Route::get('/outcome', 'DisplayController@outcome')->middleware('auth');
- Route::get('/display/{id}', 'DisplayController@show')->middleware('auth');
- Route::get('/question/display/{id}', 'DisplayController@edit')->middleware('auth');
+ Route::get('/outcome/{id}', 'DisplayController@outcome')->middleware('auth');
+ Route::post('/outcome/{id}', 'DisplayController@outcome')->middleware('auth');
+ Route::get('/display/{sub_name}/{id}', 'DisplayController@show')->middleware('auth');
+ Route::get('/question/display/{sub_name}/{id}', 'DisplayController@edit')->middleware('auth');
+ 
  
  //カテゴリーからのページのルーティング
  Route::get('/category/News', 'CategoryController@news');

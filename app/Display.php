@@ -7,14 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Display extends Model
 {
     public function category(){
-        return $this->belongTo('App\Category', 'category_id');
+        return $this->belongsTo('App\Category');
     }
     
-    public function quize() {
-        return $this->hasMany('App\Quize');
+    public function quizzes() {
+        return $this->hasMany('App\Quiz');
     }
     
-     public function trans() {
-        return $this->hasMany('App\Transcription');
-    }
+    //  public function trans() {
+    //     return $this->hasMany('App\Transcription');
+    // }
 }

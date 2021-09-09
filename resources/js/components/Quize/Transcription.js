@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   trans: {
-      letterSpacing: '1.9px',
+      letterSpacing: '1.4px',
       lineHeight: '2em',
   },
 }));

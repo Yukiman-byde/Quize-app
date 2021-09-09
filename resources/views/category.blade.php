@@ -25,7 +25,7 @@
   @foreach($displays as $display)
              <div class="container-fluid">
                 <div clas="col">
-                   <a href="/display/{{$display->id}}" style="text-decoration: none;">
+                   <a href="/display/{{$display->category->sub_name}}/{{$display->id}}" style="text-decoration: none;">
                     <div class="card mb-5 mt-5 ml-3" style="width: 500px; box-shadow: 3px 0px 3px gray;">
                       <img src={{$display->thumbnail}} class="card-img-top" alt="...">
                       <div class="card-body">

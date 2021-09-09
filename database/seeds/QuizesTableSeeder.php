@@ -11,14 +11,14 @@ class QuizesTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('quizes')->insert(
+         DB::table('quizzes')->insert(
             [
-            'display_id' => 1,
-            'question' => '全国で感染者数はどれくらいでしたか？',
-            'answer' => 2,
-            'choice1' => '二万六千人',
-            'choice2' => '二万五千人',
-            'choice3' => '一万八千人'
+            'question' => 'この動画で使われた、”えらい”を言い換えると次のうちどれですか',
+            'answear' => 1,
+            'choice1' => 'かなり、ものすごく',
+            'choice2' => '少しだけ',
+            'choice3' => 'ありありと',
+            'display_id' => 2,
             ]);
     }
 }

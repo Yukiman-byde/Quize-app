@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './Header.js';
 import LaQuestion from './LaQuestion.js';
 import ButtonAction from './ButtonAction.js';
-import Progress from './Progress.js'
+import Procedure from './Procedure.js'
+import Tip from './Tip.js';
 import axios from 'axios';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
@@ -14,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
     left: {
         flex: '0.5',
+        marginTop: 150,
     },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
@@ -32,12 +34,31 @@ const useStyles = makeStyles((theme) => ({
 export default function Quize() {
     const [data, setData] = useState([]);
     const [button, setButton] = useState(false);
+    const [tip, setTip] = useState(false);
+    const [activeStep, setActiveStep] = useState(0);
+    let value = 0;
     const handleClose =()=>{
         setButton(false);
     }
+    
+    const tipClose =()=>{
+        setTip(false);
+    };
+    
     const buttonProcedure =()=>{
         setButton(true);
-    }
+    };
+    
+    const buttonTips = ()=>{
+        setTip(true);
+    };
+    
+    const nextStep =(e)=>{
+      {e.target.value && (
+       setActiveStep((currentStep) => currentStep + 1)
+         )}
+    };
+    
     let num = window.location.pathname;
     let nombre = num.match(/\d+/);
 
@@ -52,11 +73,17 @@ export default function Quize() {
         
     return (
         <div>
-         <Header />
+         <Header
+         nextStep={nextStep}
+         activeStep={activeStep}
+         />
             <div className={classes.all}>
                 <div className={classes.left}>
                      <Backdrop className={classes.backdrop} open={button} onClick={handleClose}>
-                        <Progress />
+                        <Procedure />
+                      </Backdrop>
+                      <Backdrop className={classes.backdrop} open={tip} onClick={tipClose}>
+                        <Tip />
                       </Backdrop>
                       <div className={classes.root}>
                             <h1>{data.name}</h1>
@@ -68,12 +95,13 @@ export default function Quize() {
                             　</div>
                              <div>
                                  <ButtonAction
-                                 buttonProcedure={buttonProcedure}/>
+                                 buttonProcedure={buttonProcedure}
+                                 buttonTips={buttonTips}/>
                              </div>
                       </div>　
                 </div>
                 <div className={classes.right}>
-                    <LaQuestion />
+                    <LaQuestion nextStep={nextStep}/>
                 </div>
             </div>
         </div>

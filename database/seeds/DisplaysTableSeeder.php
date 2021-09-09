@@ -13,13 +13,12 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
-            'id' =>5,
             'name' => 'How to write hiragana',
-            'description' => 'We are going to learn how to write hiragana correctly, from　あ to お',
-            'video' => 'https://youtu.be/r25L_JwPSJc',
+            'description' => 'We are going to learn how to write hiragana correctly, from　あ to こ',
+            'video' => 'https://www.youtube.com/watch?v=r25L_JwPSJc',
             'thumbnail' => 'https://i.ytimg.com/vi/r25L_JwPSJc/mqdefault.jpg',
-            'quize_id' => '3',
-            'category_id' => '4',
+            'transcription_id' => 5,
+            'category_id' => 4,
             ]);
     }
 }

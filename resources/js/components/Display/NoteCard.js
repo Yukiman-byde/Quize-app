@@ -30,7 +30,7 @@ const useStyles = makeStyles({
 });
 
 export default function NoteCard({ title, src, url }){
-    const classes = useStyles();
+    const classes = useStyles()
     return(
         <a href={url} style={{textDecoration: 'none'}}>
          <Card 

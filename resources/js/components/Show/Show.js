@@ -25,30 +25,34 @@ export default function Show(){
     const [category, setCategory] = useState([]);
    
     const url = `/category/${category.sub_name}`;
-   
+    
+    let uri = window.location.pathname;
+    let char = uri.split('/');
+    const third = char.splice(2, 1);
+
+    
     let num =  window.location.pathname;
     let nombre = num.match(/\d+/);
     
-    
     useEffect(() => {
-        axios.get('/categories/json/' + nombre).then(res => {
-            setCategory(res.data);
+        axios.get('/categories/json/' + third).then(res => {
+            console.log(res.data);
         });
     },[]);
     
     useEffect(() =>{
         axios.get('/displays/json/' + nombre).then(res => {
-            setData(res.data);
+           setData(res.data);
         });
     }, []);
     
-   return(
-       <div className={classes.centre}>
+  return(
+      <div className={classes.centre}>
           <ShowName title={data}/>
           <ShowImage className={classes.img} src={data}/>
           <a href={url}>Genre: {category.name}</a>
           <ShowComponent className={classes.button}/>
-       </div>
-   );
+      </div>
+  );
     
 }

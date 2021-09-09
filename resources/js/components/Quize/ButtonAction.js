@@ -10,12 +10,12 @@ const useStyles = makeStyles({
     }
 });
 
-export default function ButtonAction({buttonProcedure}){
+export default function ButtonAction({buttonProcedure, buttonTips}){
     const classes = useStyles();
     return(
         <ButtonGroup className={classes.pros} variant="contained" color="primary">
          <Button onClick={buttonProcedure}>Procedure</Button>
-         <Button>Tips</Button>
+         <Button onClick={buttonTips}>Tips</Button>
         </ButtonGroup>
         )
 }
