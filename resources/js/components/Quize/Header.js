@@ -1,5 +1,5 @@
 import React,{ useState, useEffect } from 'react';
-import QuizeForm from './QuizeForm.js';
+import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -16,81 +16,38 @@ const useStyles = makeStyles((theme) => ({
      borderBottom: '1px solid #4689FF',
      position: 'fixed',
      width: '100%',
-  },
-  backButton: {
-    marginRight: theme.spacing(1),
-  },
-  instructions: {
-    marginTop: theme.spacing(1),
-    marginBottom: theme.spacing(1),
+     height: 100,
   },
 }));
 
-function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad'];
-}
 
-function getStepContent(stepIndex) {
-  switch (stepIndex) {
-    case 0:
-      return 'Select campaign settings...';
-    case 1:
-      return 'What is an ad group anyways?';
-    case 5:
-      return 'This is the bit I really care about!';
-    default:
-      return 'Unknown stepIndex';
-  }
-}
-
-export default function Header() {
+export default function Header({nextStep, activeStep}) {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = useState(0);
-  const steps = getSteps();
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
-  return (
-      <Stepper activeStep={activeStep} alternativeLabel className={classes.active}>
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel>{label}</StepLabel>
-          </Step>
-        ))}
-      </Stepper>
-    //   <div>
-    //     {activeStep === steps.length ? (
-    //       <div>
-    //         <Typography className={classes.instructions}>All steps completed</Typography>
-    //         <Button onClick={handleReset}>Reset</Button>
-    //       </div>
-    //     ) : (
-    //       <div>
-    //         <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-    //         <div>
-    //           <Button
-    //             disabled={activeStep === 0}
-    //             onClick={handleBack}
-    //             className={classes.backButton}
-    //           >
-    //             Back
-    //           </Button>
-    //           <Button variant="contained" color="primary" onClick={handleNext}>
-    //             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-    //           </Button>
-    //         </div>
-    //       </div>
-    //     )}
-    //   </div>
-  );
+  const [question, setQuestion] = useState([]);
+            
+  let num = window.location.pathname;
+  let nombre = num.match(/\d+/);
+  
+  useEffect(() =>{
+      axios.get('/question/quize/json/' + nombre).then(res =>{
+          setQuestion(res.data);
+      });
+  }, []);
+  
+    return(
+      <div className={classes.root}>
+           <Stepper activeStep={activeStep} className={classes.active}>
+            {
+               question.map((i)=>{
+                 return(
+                   <Step key={i.id}>
+                     <StepLabel>問目</StepLabel>
+                   </Step>
+                 );
+               })
+            }
+          </Stepper>
+      </div>
+      );
 }
+

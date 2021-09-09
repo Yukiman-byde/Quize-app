@@ -2,9 +2,14 @@
 
 @section('content')
 
-  　　　　<div>質問の正解数は{{ $quize }}です</div>
   
+   @foreach($requests as $request)
+    <p>{{$request}}</p>
+    @endforeach
+    
+  @foreach($displays as $display)
+    <p>{{$display->answear}}</p>
+    @endforeach
   
-  <a href="{{ route('display.index')}}">Go back to home</a>
 
 @endsection

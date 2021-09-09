@@ -14,8 +14,9 @@ class CreateTranscriptionsTable extends Migration
     public function up()
     {
         Schema::create('transcriptions', function (Blueprint $table) {
-            $table->integer('id');
+            $table->BigIncrements('id');
             $table->text('transcription');
+            $table->text('tip');
             $table->timestamps();
         });
     }

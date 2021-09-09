@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Controllers\Controller;
 use App\Display;
 use App\Category;
-use App\Quize;
+use App\Category\sub_name;
+use App\Quiz;
 use App\Transcription;
 use Illuminate\Http\Request;
 
@@ -28,24 +28,40 @@ class DisplayController extends Controller
         }
     }
     
-    public function categories($id = -1){
-        if ($id == -1)
-        { 
-            return Category::get()->toJson();
-        } 
-        else {
-            return Category::find($id)->toJson();
-        }
+    public function category($id = -1){
+         if ($id == -1)
+         { 
+             return Category::get()->toJson();
+         } 
+         else {
+             return Category::find($id)->toJson();
+         }
+    }
+    
+    public function categories(Category $category,$sub_name){
+        // if ($id == -1)
+        // { 
+        //     return Category::get()->toJson();
+        // } 
+        // else {
+        //     return Category::find($id)->toJson();
+        // }
+        //$categoryy = Category::where('name', 'LIKE', "%$category%");
+        $cate = new Category;
+        $catego = $cate->where('sub_name', 'LIKE', "%$sub_name%");
+       
+        return $catego->get()->toJson();
     }
     
     public function quize($id = -1){
          if ($id == -1)
         { 
-            return Display::with(['quize'])->get()->toJson();
-          
+            return Display::get()->toJson();
         } 
         else {
-            return Display::with(['quize'])->find($id)->toJson();
+            $display = Display::find($id);
+            $display = $display->quizzes;
+            return $display->toJson();
         }
     }
     
@@ -68,10 +84,14 @@ class DisplayController extends Controller
             return view('index');
         }
    
-     public function outcome(Request $request)
-     {
-        $quize = $request->quizzes_outcome;
-        return view('outcome', ['quize' => $quize]);
+     public function outcome($id, Request $request, Quiz $quiz)
+    {
+         $requests = $request->except(['token']);
+         //$catego = $cate->where('sub_name', 'LIKE', "%$sub_name%");
+        $display = Display::find($id);
+        $displays = $display->quizzes;
+           
+        return view('outcome', ['requests' => $requests, 'displays' => $displays]);
     }
     /**
      * Store a newly created resource in storage.
@@ -90,12 +110,9 @@ class DisplayController extends Controller
      * @param  \App\Display  $display
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request)
+    public function show()
     {
-        // dd($request);
-        $display = Display::find($id);
-        return view('show', ['display' => $display]);
-      
+        return view('show');
     }
     
     
