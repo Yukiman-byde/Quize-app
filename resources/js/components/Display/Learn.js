@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 
 export default function Learn(){
     const [data, setData] = useState([]);
-    
+    let counter = 0;
     useEffect(()=>{
         axios.get('/categories/json')
         .then(res=> {
@@ -44,11 +44,13 @@ export default function Learn(){
             <Container>
                  <Grid container>
                    {data.map((i)=>{
-                     let url = `/category/${i.sub_name}`;
+                   counter++;
+                   if(counter < 7){
+                        let url = `/category/${i.sub_name}`;
                         return(
-                       <NoteCard key={i.id} title={i} src={i} url={url}/>
+                          <NoteCard key={i.id} title={i} src={i} url={url}/>
                         );
-                    })}
+                    }})}
                  </Grid>
             </Container>
         </div>

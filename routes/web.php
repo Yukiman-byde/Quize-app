@@ -22,6 +22,8 @@ Route::get('/transcription/json/{id}', 'DisplayController@trans');
 
 //JSON(カテゴリーページ)
 Route::get('/categories/taggin/{Category}', 'CategoryController@index');
+Route::get('/category/json/Advance', 'CategoryController@advance');
+Route::get('/category/json/Rudiment', 'CategoryController@rudiment');
 
 //authenticationのためのルーティング
 Auth::routes();

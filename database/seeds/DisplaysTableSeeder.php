@@ -13,12 +13,12 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
-            'name' => 'How to write hiragana',
-            'description' => 'We are going to learn how to write hiragana correctly, from　あ to こ',
-            'video' => 'https://www.youtube.com/watch?v=r25L_JwPSJc',
-            'thumbnail' => 'https://i.ytimg.com/vi/r25L_JwPSJc/mqdefault.jpg',
-            'transcription_id' => 5,
-            'category_id' => 4,
+            'name' => '日本語レッスン✍JLPT N5 Lesson 1-1 Conversation「わたしはがくせいです」 I am a student.【日本語能力試験N5】',
+            'description' => '日本語能力試験 日本語eラーニング JLPT対策',
+            'video' => 'https://www.youtube.com/embed/u1g1hWLZ67I',
+            'thumbnail' => 'https://i.ytimg.com/vi/u1g1hWLZ67I/sddefault.jpg',
+            'transcription_id' => 10,
+            'category_id' => 8,
             ]);
     }
 }

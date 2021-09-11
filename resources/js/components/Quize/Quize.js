@@ -36,7 +36,9 @@ export default function Quize() {
     const [button, setButton] = useState(false);
     const [tip, setTip] = useState(false);
     const [activeStep, setActiveStep] = useState(0);
+    const [array, setArray] = useState([]);
     let value = 0;
+
     const handleClose =()=>{
         setButton(false);
     }
@@ -54,9 +56,14 @@ export default function Quize() {
     };
     
     const nextStep =(e)=>{
-      {e.target.value && (
-       setActiveStep((currentStep) => currentStep + 1)
-         )}
+      if(array.includes(e.target.name)){
+         return
+      } else {
+         //array.push(e.target.name);
+         //setActiveStep(activeStep.push(e.target.name))
+         setArray[array.push(e.target.name)]
+         setActiveStep((i) => i + 1)
+      }
     };
     
     let num = window.location.pathname;
