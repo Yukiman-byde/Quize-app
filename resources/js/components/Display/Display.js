@@ -1,8 +1,9 @@
 import React from 'react';
+import Display_display from './Display_display.js';
 import Learn from './Learn';
 import { makeStyles } from '@material-ui/core/styles';
-import Display_card from './Display_card';
 import Typography from '@material-ui/core/Typography';
+
 
 const useStyles = makeStyles({
 　　back: {
@@ -14,10 +15,7 @@ const useStyles = makeStyles({
 　　    textDecoration: 'underline',
 　　    color: '#1E8C99',
 　　},
-　　card: {
-　　    display: 'flex',
-　　    margin: '50px'
-　　}
+
 });
 
 
@@ -33,9 +31,9 @@ export default function Display(){
                      >
                   Access To Real Japan
                 </Typography>
-                <div className={classes.card}>
-                   <Display_card/>
-                </div>
+           </div>
+           <div >
+              <Display_display/>
            </div>
            <div>
              <Learn />

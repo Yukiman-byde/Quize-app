@@ -21,6 +21,20 @@ class CategoryController extends Controller
         dd($category->displays);
             return $Category->find($category)->toJson();
     }
+    
+     public function advance(Category $category, Display $display)
+    {
+         $category = $category->find(7);
+         $displays = $category->displays;
+         return $displays->toJson();
+    }
+    
+     public function rudiment(Category $category, Display $display)
+    {
+         $category = $category->find(8);
+         $displays = $category->displays;
+         return $displays->toJson();
+    }
 
     /**
      * Show the form for creating a new resource.
