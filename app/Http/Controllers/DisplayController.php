@@ -86,12 +86,23 @@ class DisplayController extends Controller
    
      public function outcome($id, Request $request, Quiz $quiz)
     {
-         $requests = $request->except(['token']);
-         //$catego = $cate->where('sub_name', 'LIKE', "%$sub_name%");
-        $display = Display::find($id);
-        $displays = $display->quizzes;
-           
-        return view('outcome', ['requests' => $requests, 'displays' => $displays]);
+        //  $display = Display::find($id);
+        //  $quizzes = $display->quizzes;
+         $choices = $request->except(['token']);
+      
+         $dejas = [];
+        foreach($choices as $question => $choice) {
+           $answer = Quiz::where('question', $question)->value('answear');
+           $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
+           array_push($dejas, $deja);
+        }
+         $category = New Category;
+         $info = $category->find($id);
+         
+         $category = $category->find($id);
+         $categories = $category->displays;
+    
+         return view('outcome', ['categories' => $categories, 'dejas' => $dejas, 'info' => $info]);
     }
     /**
      * Store a newly created resource in storage.

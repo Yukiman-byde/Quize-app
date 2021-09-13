@@ -20,6 +20,7 @@ Route::get('/question/displays/json/{id}', 'DisplayController@json');
 Route::get('/question/quize/json/{id}', 'DisplayController@quize');
 Route::get('/transcription/json/{id}', 'DisplayController@trans');
 
+
 //JSON(カテゴリーページ)
 Route::get('/categories/taggin/{Category}', 'CategoryController@index');
 Route::get('/category/json/Advance', 'CategoryController@advance');
@@ -29,6 +30,11 @@ Route::get('/category/json/Rudiment', 'CategoryController@rudiment');
 Auth::routes();
 
 Route::get('display/home', 'HomeController@index')->name('home');
+
+Route::get('login/google', 
+           'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback', 
+           'Auth\LoginController@handleGoogleCallback');
 
 Route::get('/', function () {
   return redirect('display/home');

@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   active: {
-     background: '#C2EEFF',
      borderBottom: '1px solid #4689FF',
      position: 'fixed',
      width: '100%',

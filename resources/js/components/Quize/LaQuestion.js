@@ -39,6 +39,7 @@ export default function LaQuestion({nextStep}){
     
     let url = `/outcome/${nombre}`;
 
+
     useEffect(()=>{
         let csrf = document.head.querySelector('meta[name="csrf-token"]').content;
         setToken(csrf);
