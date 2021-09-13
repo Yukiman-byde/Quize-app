@@ -12,6 +12,7 @@ import Transcription from './Transcription.js';
 const useStyles = makeStyles((theme) => ({
     all: {
         display : 'flex',
+        background: '#C2EEFF',
     },
     left: {
         flex: '0.5',
