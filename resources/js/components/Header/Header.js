@@ -51,7 +51,9 @@ export default function Header (){
                 <HeaderItem Icon={HomeRoundedIcon}/>
              </Link>
              <HeaderItem Icon={SearchRoundedIcon}/>
-             <HeaderItem Icon={EmailIcon} />
+             <Link href="/post">
+                <HeaderItem Icon={EmailIcon} />
+             </Link>
              <HeaderItem Icon={AccountCircleRoundedIcon} />
            </Typography>
            
