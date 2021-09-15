@@ -42,6 +42,9 @@ Route::get('/', function () {
 
 //ページのルーティング
  Route::get('/display', 'DisplayController@index');
+ Route::get('/post', 'PostController@post')->name('posts.create');
+ Route::get('/postmail', 'PostController@index')->name('posts.mail');
+ Route::post('/postmail', 'PostController@index')->name('posts.mail');
  Route::get('/outcome/{id}', 'DisplayController@outcome')->middleware('auth');
  Route::post('/outcome/{id}', 'DisplayController@outcome')->middleware('auth');
  Route::get('/display/{sub_name}/{id}', 'DisplayController@show')->middleware('auth');
