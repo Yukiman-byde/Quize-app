@@ -12,19 +12,18 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class PostSent extends Mailable
 {
     use Queueable, SerializesModels;
-    protected $content;
+    protected $data;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($content)
+    public function __construct($data)
     {
         // $this->title = "送信されました！";
         // $this->data['user'] = $user;
-        // $this->data['post'] = $post;
-        $this->content = $content;
-        
+        // $this->data['post'] = $post:
+        $this->data = $data;
     }
 
     /**
@@ -37,10 +36,13 @@ class PostSent extends Mailable
     //   return $this->markdown('sents')
     //     ->subject($this->title)
     //     ->with($this->data);
-    
+
+  
      return $this
           ->from('fungashaka@gmail.com')  // 送信元
-          ->view('sents') // どのテンプレートを呼び出すか
-          ->with($this->content); // withオプションでセットしたデータをテンプレートへ受け渡す
+          ->view('mail') // どのテンプレートを呼び出すか
+          ->with([
+              'data' =>$this->data
+              ]); // withオプションでセットしたデータをテンプレートへ受け渡す
     }
 }
