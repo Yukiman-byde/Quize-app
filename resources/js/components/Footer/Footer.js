@@ -33,12 +33,11 @@ export default function Footer(){
     return(
      <div>
         <div className={classes.cancel}>
-             <Typography 
-               component="div"
+             <div 
                className={classes.footer}
                >
                  <FooterItem />
-               </Typography>
+               </div>
                <FooterInformation />
         </div>
         <Container className={classes.foot} fixed>

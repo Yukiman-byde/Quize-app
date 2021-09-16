@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
@@ -39,7 +37,7 @@ export default function DisplayAdvance(){
    },[]);
    return(
       <div>
-      <Grid container xs={12} className={classes.root}>
+      <Grid container item xs={12} className={classes.root}>
           <Grid item xs={6}>
       <a href="/display/Advance/8" style={{textDecoration: 'none'}}>
              <Card>

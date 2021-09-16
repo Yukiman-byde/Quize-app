@@ -9,6 +9,7 @@ use App\Mail\PostSent;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CreatePost;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SampleNotification;
 
 
 class PostController extends Controller
@@ -19,11 +20,11 @@ class PostController extends Controller
     
     public function index(Request $request)
     {
-        $content = array();
-        $content['content'] = $request['content']; // メール本文
-
-         Mail::to($content)->send(new PostSent($content));
         
+        $data = $request->content;
+        $to = 'fungashaka@gmail.com';
+  
+	   Mail::to($to)->send(new PostSent($data));        
         // Mail::send(
         //     ['sents' => 'example'],
         //     $content,

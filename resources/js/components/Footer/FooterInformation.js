@@ -24,11 +24,11 @@ const useStyles = makeStyles({
 export default function FooterInformation(){
     const classes = useStyles();
     return(
-            <Typography className={classes.information}>
+            <div className={classes.information}>
              <FooterDot Icon={HomeRoundedIcon} title="Home"/>
              <FooterDot Icon={SearchRoundedIcon}  title="Search"/>
              <FooterDot Icon={MenuIcon} title="Menu"/>
              <FooterDot Icon={AccountCircleRoundedIcon}  title="Account"/>
-           </Typography>
+           </div>
         )
 }

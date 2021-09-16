@@ -42,22 +42,28 @@ Route::get('/', function () {
 
 //ページのルーティング
  Route::get('/display', 'DisplayController@index');
- Route::get('/post', 'PostController@post')->name('posts.create');
- Route::get('/postmail', 'PostController@index')->name('posts.mail');
- Route::post('/postmail', 'PostController@index')->name('posts.mail');
+ Route::get('/search/{name}', 'DisplayController@search');
  Route::get('/outcome/{id}', 'DisplayController@outcome')->middleware('auth');
  Route::post('/outcome/{id}', 'DisplayController@outcome')->middleware('auth');
+ Route::get('/display/{id}', 'DisplayController@show')->middleware('auth');
  Route::get('/display/{sub_name}/{id}', 'DisplayController@show')->middleware('auth');
+ Route::get('/question/display/{id}', 'DisplayController@edit')->middleware('auth');
  Route::get('/question/display/{sub_name}/{id}', 'DisplayController@edit')->middleware('auth');
+
  
  
  //カテゴリーからのページのルーティング
  Route::get('/category/News', 'CategoryController@news');
  Route::get('/category/comedy', 'CategoryController@comedy');
- Route::get('/category/sing', 'CategoryController@sing');
+ Route::get('/category/song', 'CategoryController@sing');
  Route::get('/category/basic', 'CategoryController@basic'); 
  Route::get('/category/culture', 'CategoryController@culture');
  Route::get('/category/expression', 'CategoryController@expression');
+ 
+ //ポストを使ったルーティング
+ Route::get('/post', 'PostController@post')->name('posts.create');
+ Route::get('/postmail', 'PostController@index')->name('posts.mail');
+ Route::post('/postmail', 'PostController@index')->name('posts.mail');
 
 // Auth::routes();
 

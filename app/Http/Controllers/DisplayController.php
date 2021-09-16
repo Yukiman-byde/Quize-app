@@ -17,7 +17,7 @@ class DisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+   //displayのデータをJsonへ
     public function json($id = -1){
           if ($id == -1)
         { 
@@ -27,7 +27,7 @@ class DisplayController extends Controller
             return Display::find($id)->toJson();
         }
     }
-    
+    //categoryのデータをJsonへ
     public function category($id = -1){
          if ($id == -1)
          { 
@@ -37,22 +37,14 @@ class DisplayController extends Controller
              return Category::find($id)->toJson();
          }
     }
-    
+    //特定のカテゴリーを送る
     public function categories(Category $category,$sub_name){
-        // if ($id == -1)
-        // { 
-        //     return Category::get()->toJson();
-        // } 
-        // else {
-        //     return Category::find($id)->toJson();
-        // }
-        //$categoryy = Category::where('name', 'LIKE', "%$category%");
         $cate = new Category;
         $catego = $cate->where('sub_name', 'LIKE', "%$sub_name%");
        
         return $catego->get()->toJson();
     }
-    
+    //displayとくっついてるQuizを送る。
     public function quize($id = -1){
          if ($id == -1)
         { 
@@ -64,7 +56,7 @@ class DisplayController extends Controller
             return $display->toJson();
         }
     }
-    
+    //displayにくっついてるdiscriptionを送る。
     public function trans($id = -1){
           if ($id == -1)
         { 
@@ -79,15 +71,14 @@ class DisplayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     //一覧ページを表示
          public function index() 
         {
             return view('index');
         }
-   
+   //問題の回答をOutcomeページに送る。
      public function outcome($id, Request $request, Quiz $quiz)
     {
-        //  $display = Display::find($id);
-        //  $quizzes = $display->quizzes;
          $choices = $request->except(['token']);
       
          $dejas = [];
@@ -121,19 +112,13 @@ class DisplayController extends Controller
      * @param  \App\Display  $display
      * @return \Illuminate\Http\Response
      */
+     //showページを出す。
     public function show()
     {
         return view('show');
     }
     
-    
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Display  $display
-     * @return \Illuminate\Http\Response
-     */
+     //quizページを出す
     public function edit($id)
     {
         //$display = Display::find($id);
@@ -141,27 +126,22 @@ class DisplayController extends Controller
         return view('quize');
     }
     
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Display  $display
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Display $display)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Display  $display
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Display $display)
-    {
-        //
-    }
+   public function search(Category $category,Display $display, $name){
+       //渡されてきたnameはdisplayの中も配列なので同様に,配列にしてから処理したほうがいい。
+       $name = 
+          [
+           'name' => $name,
+          ];
+      $msg = '該当するビデオはありませんでした。';
+     $display = $display->all();
+ 
+      if(!empty($name))
+          {
+            $displays = $display->where('name','like',$name['name']);
+          }
+         $category = $category->find($displays);
+   
+         return view('search', ['displays' => $displays, 'msg' => $msg]);
+     //$display = $display->where('name', 'LIKE', "%$name%");
+   }
 }
