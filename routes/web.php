@@ -11,6 +11,12 @@
 |
 */
 
+// Route::get('/redis', function(){
+//     $app = Redis::connection();
+//     $app->set("key2", "value2");
+//     print_r($app->get("key2"));
+// });
+
 //JSONファイル(一覧ページから)
 Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
@@ -19,6 +25,7 @@ Route::get('/categories/json/{sub_name}', 'DisplayController@categories');
 Route::get('/question/displays/json/{id}', 'DisplayController@json');
 Route::get('/question/quize/json/{id}', 'DisplayController@quize');
 Route::get('/transcription/json/{id}', 'DisplayController@trans');
+Route::get('/user/json/', 'DisplayController@user');
 
 
 //JSON(カテゴリーページ)
@@ -49,8 +56,6 @@ Route::get('/', function () {
  Route::get('/display/{sub_name}/{id}', 'DisplayController@show')->middleware('auth');
  Route::get('/question/display/{id}', 'DisplayController@edit')->middleware('auth');
  Route::get('/question/display/{sub_name}/{id}', 'DisplayController@edit')->middleware('auth');
-
- 
  
  //カテゴリーからのページのルーティング
  Route::get('/category/News', 'CategoryController@news');
@@ -64,6 +69,10 @@ Route::get('/', function () {
  Route::get('/post', 'PostController@post')->name('posts.create');
  Route::get('/postmail', 'PostController@index')->name('posts.mail');
  Route::post('/postmail', 'PostController@index')->name('posts.mail');
+ 
+ Route::get('/user/image/', 'DisplayController@userEdit');
+ Route::post('/user/image/', 'DisplayController@userEdit');
+ 
 
 // Auth::routes();
 

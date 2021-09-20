@@ -43,50 +43,43 @@ class CategoryController extends Controller
      */
     public function news(Display $display, Category $category, $id = 1)
     {
-         $category = $category->find($id);
-         $categorizing = $category;
-         $displays = $category->displays;
-         return view('category', ['displays' => $displays, 'categorizing' => $categorizing]);
-        
+      $category = $category->find($id);
+      $displays = $category->find($id)->displays()->get();
+      return view('category', ['displays' => $displays, 'category' => $category]);
     }
     
     public function comedy(Display $display, Category $category, $id = 2)
     {
       $category = $category->find($id);
-      $categorizing = $category;
-      $displays = $category->displays;
-     return view('category', ['displays' => $displays, 'categorizing' => $categorizing]);
+      $displays = $category->find($id)->displays()->get();
+     return view('category', ['displays' => $displays, 'category' => $category]);
     }
     
     public function sing(Display $display, Category $category, $id = 3)
     {
-         $category = $category->find($id);
-         $categorizing = $category;
-         $displays = $category->displays;
-         return view('category', ['displays' => $displays, 'categorizing' => $categorizing]);
+        $category = $category->find($id);
+        $displays = $category->find($id)->displays()->get();
+        return view('category', ['displays' => $displays, 'category' => $category]);
     }
     
     public function basic(Display $display, Category $category, $id = 4)
     {
-          $category = $category->find($id);
-         $categorizing = $category;
-         $displays = $category->displays;
-         return view('category', ['displays' => $displays, 'categorizing' => $categorizing]);
+      $category = $category->find($id);
+      $displays = $category->find($id)->displays()->get();
+      return view('category', ['displays' => $displays, 'category' => $category]);
     }
     
     public function culture(Display $display, Category $category, $id = 5)
     {
-          $category = $category->find($id);
-         $categorizing = $category;
-         $displays = $category->displays;
-         return view('category', ['displays' => $displays, 'categorizing' => $categorizing]);
+      $category = $category->find($id);
+      $displays = $category->find($id)->displays()->get();
+      return view('category', ['displays' => $displays, 'category' => $category]);
     }
     
     public function expression(Display $display, Category $category, $id = 6)
     {
-         $category = $category->find($id);
-         $categorizing = $category;
-         $displays = $category->displays;
-         return view('category', ['displays' => $displays, 'categorizing' => $categorizing]);
+      $category = $category->find($id);
+      $displays = $category->find($id)->displays()->get();
+      return view('category', ['displays' => $displays, 'category' => $category]);
     }
 }

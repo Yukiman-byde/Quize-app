@@ -95,7 +95,7 @@ export default function Quize() {
                       </Backdrop>
                       <div className={classes.root}>
                             <h1>{data.name}</h1>
-                            <iframe width="560" height="315" src={data.video} 
+                            <iframe width="700" height="415" src={data.video} 
                              >
                              </iframe>
                              <div className={classes.transcription}>

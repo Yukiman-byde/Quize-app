@@ -30,7 +30,7 @@
               <h1>More informations with {{$info->name}}</h1>
            <div id="carouselExampleCaptions" style="display: flex;" class="carousel slide" data-bs-ride="carousel">
                @foreach($categories as $category)
-                  <a href="/display/{{$category->category->sub_name}}/{{$category->id}}" style="text-decoration: none;">
+                  <a href="/display/{{$info->sub_name}}/{{$category->id}}" style="text-decoration: none;">
                     <div class="card" style="width: 18rem; margin: 15px;">
                          <img src={{$category->thumbnail}} class="card-img-top" alt="...">
                          <div class="card-body">
