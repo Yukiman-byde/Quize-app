@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use Storage;
 use App\Display;
 use App\Category;
 use App\Category\sub_name;
@@ -21,10 +24,13 @@ class DisplayController extends Controller
     public function json($id = -1){
           if ($id == -1)
         { 
+           //リレーション済みで関係性も完璧出来だからこれを送る
+           //$display = $display->find($id)->categories()->get();
+          // $category = $category->find($id)->displays()->get();
             return Display::get()->toJson();
         } 
         else {
-            return Display::find($id)->toJson();
+            return Display::all()->find($id)->toJson();
         }
     }
     //categoryのデータをJsonへ
@@ -72,8 +78,11 @@ class DisplayController extends Controller
      * @return \Illuminate\Http\Response
      */
      //一覧ページを表示
-         public function index() 
+         public function index(Category $category,Display $display, $id=2) 
         {
+           //$display = $display->find($id)->categories()->get();
+            $category = $category->find($id)->displays()->get();
+            // dd($display);
             return view('index');
         }
    //問題の回答をOutcomeページに送る。
@@ -126,20 +135,54 @@ class DisplayController extends Controller
         return view('quize');
     }
     
+        public function user()
+       {
+           $user = Auth::user();
+           return $user->toJson();
+       }
+    
+       public function userEdit(Request $request)
+       {
+         
+             $user = new User;
+          //   $form = $request->all();
+             //s3アップロード開始
+             $image = $request->file('image');
+             dd($image);
+      // バケットの`quizees-app`フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('quizees-app', $image, 'public');
+      // アップロードした画像のフルパスを取得
+            $user->picture = Storage::disk('s3')->url($path);
+
+            $user->save();
+
+           return redirect('/display');
+       }
+   
+    
    public function search(Category $category,Display $display, $name){
        //渡されてきたnameはdisplayの中も配列なので同様に,配列にしてから処理したほうがいい。
        $name = 
           [
            'name' => $name,
           ];
+        $description = 
+            [
+             'description' => $name
+            ];
       $msg = '該当するビデオはありませんでした。';
      $display = $display->all();
+     
  
       if(!empty($name))
           {
-            $displays = $display->where('name','like',$name['name']);
+            $displays = Display::where('name', 'like', $name['name'])
+                                 ->orWhere('description', 'like', $name['name'])->get();
+            //$displays = $display->where(function($query){
+               //$query->where('name', 'like', $name['name'])->orWhere('description', 'like', $description['description']);
+            //});
           }
-         $category = $category->find($displays);
+
    
          return view('search', ['displays' => $displays, 'msg' => $msg]);
      //$display = $display->where('name', 'LIKE', "%$name%");

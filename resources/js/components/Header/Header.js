@@ -1,7 +1,9 @@
 import React, {useState, useEffect } from 'react';
+import axios from 'axios';
 import HeaderItem from './HeaderItem';
 import AppBar from '@material-ui/core/AppBar';
 import { IconButton } from '@material-ui/core';
+import UserPage from './UserPage.js';
 import InputBase from '@material-ui/core/InputBase';
 import EmailIcon from '@material-ui/icons/Email';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -10,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
-import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
+import Avatar from '@mui/material/Avatar';
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -67,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       width: '12ch',
       '&:focus': {
-        width: '20ch',
+        width: '30ch',
       },
     },
   },
@@ -79,13 +81,30 @@ export default function Header (){
     const classes = useStyles();
     const [value, setValue] = useState();
     const [answer, setAnswer] = useState("");
-    
+    const [boolean, setBoolean] = useState(false);
+    const [users, setUsers] =useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [id, setId] = useState('');
+    const [picture, setPicture] = useState('');
+   
+   useEffect(() =>{
+      axios.get('/user/json/').then(res=>{
+         setUsers(res.data);
+         setId(res.data.id);
+         setName(res.data.name);
+         setEmail(res.data.email);
+         setPicture(res.data.picture);
+      }).catch(error=>{
+          console.log(error);
+      });
+   },[]);
+
+ const iconOpen=()=>{
+     setBoolean(prev => !prev);
+  };
+  
     let url = `/search/${value}`;
-    
-    //useEffect入力されるたびに動かす。
-   //  useEffect(()=>{
-   //     console.log(`${value}`);
-   //  },[value]);
     
   return(
       <div className={classes.root}>
@@ -129,11 +148,19 @@ export default function Header (){
              <Link href="/post">
                 <HeaderItem Icon={EmailIcon} />
              </Link>
-             <HeaderItem Icon={AccountCircleRoundedIcon} />
+             <HeaderItem onClick={iconOpen} Icon={Avatar} name={name[0]}/>
            </div>
-           
          </Toolbar>
        </AppBar>
+       {boolean && (
+        <UserPage 
+        name={name}
+        picture={picture}
+        email={email}
+        id={id}
+        users={users}
+        />
+          )}
       </div>
       
     );

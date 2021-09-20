@@ -25,27 +25,10 @@ class PostController extends Controller
         $to = 'fungashaka@gmail.com';
   
 	   Mail::to($to)->send(new PostSent($data));        
-        // Mail::send(
-        //     ['sents' => 'example'],
-        //     $content,
-        //     function($message) {
-        //         $message
-        //         ->to('fungashaka@gmail.com')       // 送信先アドレス
-        //         ->subject('メールが届きました'); // メールタイトル
-        //     }
-        
-        //Mail::to($request->user())->send(new PostSent($content));
-        //Mail::to($content)->send(new PostSent($content));
+      
         
         return view('sents');
-        // $data = [];
-        // Mail::send('sents', $data, function($message){
-        // $message->to('hoge@example.com', 'Test')
-        // ->subject('test mail');
-        // });
-        // $content = $request->all();
-        //  Mail::to($content->content)
-        //     ->send(new PostSent($content)); // 引数にリクエストデータを渡す
+      
     }
 
     public function create(CreatePost $request)
