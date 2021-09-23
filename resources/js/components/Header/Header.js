@@ -81,7 +81,7 @@ export default function Header (){
     const classes = useStyles();
     const [value, setValue] = useState();
     const [answer, setAnswer] = useState("");
-    const [boolean, setBoolean] = useState(true);
+    const [boolean, setBoolean] = useState(false);
     const [users, setUsers] =useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');

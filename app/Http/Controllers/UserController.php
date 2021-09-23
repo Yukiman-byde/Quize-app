@@ -18,9 +18,9 @@ class UserController extends Controller
     }
     
    public function history(){
-        $history = new History;
-        $user = Auth::user();
-        // dd($user->with('histories:display_id')->display()->get());
+       $history = new History;
+       $user = Auth::user();
+       // dd($user->with('histories:display_id')->display()->get());
     //   dd($user->histories()->display()->get());
        return $user->histories()->get()->toJson();
    }
