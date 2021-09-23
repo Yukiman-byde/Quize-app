@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\History;
 use Storage;
 use App\Display;
 use App\Category;
@@ -88,21 +89,74 @@ class DisplayController extends Controller
    //問題の回答をOutcomeページに送る。
      public function outcome($id, Request $request, Quiz $quiz)
     {
-         $choices = $request->except(['token']);
+      //    $choices = $request->except(['token']);
       
-         $dejas = [];
-        foreach($choices as $question => $choice) {
-           $answer = Quiz::where('question', $question)->value('answear');
-           $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
-           array_push($dejas, $deja);
-        }
-         $category = New Category;
-         $info = $category->find($id);
+      //    $dejas = [];
+      //  foreach($choices as $question => $choice) {
+      //     $answer = Quiz::where('question', $question)->value('answear');
+      //     $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
+      //     array_push($dejas, $deja);
+      //  }
+      //    $category = New Category;
+      //    $info = $category->find($id);
          
-         $category = $category->find($id);
-         $categories = $category->displays;
+      //    $category = $category->find($id);
+      //    $categories = $category->displays;
+      $count = 0;
+      $corrects = [];
+      $options = [];
+      
+      $choices = $request->except(['token']);
+      
+      foreach($choices as $question => $choice) {
+         $answer = Quiz::where('question', $question)->value('answear');
+         $correct = array('answer' => $answer);
+         array_push($corrects, $correct);
+      
+         $option = array('selected' => $choice);
+         array_push($options, $option);
+          if($answer != $choice){
+          }else {
+              $count++;
+          }
+      }
+        $solveNumber = $count;
+        
+      $display = new Display;
+      $display = $display->find($id)->quizzes()->get();
+      //dd(count($display));
+      $display = count($display);
+      
+      $history = new History;
+      
+      $history->wholeNumber = $display;
+     
+      $history->solvedNumber = $solveNumber;
+      
+      $history->display_id = Display::find($id)->value('id');
+      
+      $history->user_id = Auth::user()->id;
+      
+      $history->save();
+      
+      $history->displays()->attach($id);
+
+      $choices = $request->except(['token']);
+      
+      $dejas = [];
+     foreach($choices as $question => $choice) {
+        $answer = Quiz::where('question', $question)->value('answear');
+        $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
+        array_push($dejas, $deja);
+     }
+        
+      $category = New Category;
+      $info = $category->find($id);
+      
+      $category = $category->find($id);
+      $categories = $category->displays;
     
-         return view('outcome', ['categories' => $categories, 'dejas' => $dejas, 'info' => $info]);
+      return view('outcome', ['categories' => $categories, 'dejas' => $dejas, 'info' => $info]);
     }
     /**
      * Store a newly created resource in storage.
@@ -171,20 +225,20 @@ class DisplayController extends Controller
              'description' => $name
             ];
       $msg = '該当するビデオはありませんでした。';
-     $display = $display->all();
+     $display = $display->categories()->get();
+
      
- 
       if(!empty($name))
           {
             $displays = Display::where('name', 'like', $name['name'])
                                  ->orWhere('description', 'like', $name['name'])->get();
+            
             //$displays = $display->where(function($query){
                //$query->where('name', 'like', $name['name'])->orWhere('description', 'like', $description['description']);
             //});
           }
-
    
-         return view('search', ['displays' => $displays, 'msg' => $msg]);
+         return view('search', ['displays' => $displays, 'msg' => $msg, 'category' => $category]);
      //$display = $display->where('name', 'LIKE', "%$name%");
    }
 }

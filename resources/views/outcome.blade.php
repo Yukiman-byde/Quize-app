@@ -26,14 +26,14 @@
       </div> 
    </div>
 
-       <div style="max-width: 90%; margin: 100px auto;">
+       <div style="max-width: 90%; margin: 100px auto;overflow: scroll; white-space: nowrap;">
               <h1>More informations with {{$info->name}}</h1>
            <div id="carouselExampleCaptions" style="display: flex;" class="carousel slide" data-bs-ride="carousel">
                @foreach($categories as $category)
                   <a href="/display/{{$info->sub_name}}/{{$category->id}}" style="text-decoration: none;">
                     <div class="card" style="width: 18rem; margin: 15px;">
                          <img src={{$category->thumbnail}} class="card-img-top" alt="...">
-                         <div class="card-body">
+                         <div class="card-body" style="overflow: hidden;">
                            <p class="card-text">{{$category->name}}</p>
                            <p class="card-text">{{$category->description}}</p>
                          </div>

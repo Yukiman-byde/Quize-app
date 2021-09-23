@@ -25,7 +25,12 @@ Route::get('/categories/json/{sub_name}', 'DisplayController@categories');
 Route::get('/question/displays/json/{id}', 'DisplayController@json');
 Route::get('/question/quize/json/{id}', 'DisplayController@quize');
 Route::get('/transcription/json/{id}', 'DisplayController@trans');
-Route::get('/user/json/', 'DisplayController@user');
+
+//JSONファイル（ユーザー詳細）
+Route::get('/user/json/', 'UserController@user');
+Route::get('/user/history/json/', 'UserController@history');
+Route::get('/user/display/json/', 'UserController@display');
+
 
 
 //JSON(カテゴリーページ)

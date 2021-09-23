@@ -81,13 +81,16 @@ export default function Header (){
     const classes = useStyles();
     const [value, setValue] = useState();
     const [answer, setAnswer] = useState("");
-    const [boolean, setBoolean] = useState(false);
+    const [boolean, setBoolean] = useState(true);
     const [users, setUsers] =useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [id, setId] = useState('');
     const [picture, setPicture] = useState('');
-   
+   //  const [history, setHistory] = useState([]);
+    const [display, setDisplay] = useState([]);
+ 
+
    useEffect(() =>{
       axios.get('/user/json/').then(res=>{
          setUsers(res.data);
@@ -95,10 +98,20 @@ export default function Header (){
          setName(res.data.name);
          setEmail(res.data.email);
          setPicture(res.data.picture);
-      }).catch(error=>{
-          console.log(error);
       });
    },[]);
+   
+   //     useEffect(()=>{
+   //     axios.get('/user/history/json/').then(res=>{
+   //        setHistory(res.data);
+   //     });
+   //  },[]);
+    
+     useEffect(()=>{
+         axios.get('/user/display/json/').then(res=>{
+               setDisplay(res.data);
+         });
+     },[]);
 
  const iconOpen=()=>{
      setBoolean(prev => !prev);
@@ -159,6 +172,7 @@ export default function Header (){
         email={email}
         id={id}
         users={users}
+        display={display}
         />
           )}
       </div>

@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\User;
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -61,19 +62,29 @@ class LoginController extends Controller
      */
     public function handleGoogleCallback()
     {
-        $provider_user = Socialite::driver('google')->stateless()->user();
-        $user = User::where('email', $provider_user->email)->first();
+        // $provider_user = Socialite::driver('google')->stateless()->user();
+        // $user = User::where('email', $provider_user->email)->first();
         
-        if($user == null){
-         $user = User::Create([
-             'name' =>$provider_user->getName(),
-             'email' => $provider_user->getEmail(),
-             'provider_id' => $provider_user->getId(),
-             'picture' => $provider_user->getAvatar(),
-             ]);
-        }
+        // if($user == null){
+        //  $user = User::Create([
+        //      'name' =>$provider_user->getName(),
+        //      'email' => $provider_user->getEmail(),
+        //      'provider_id' => $provider_user->getId(),
+        //      'picture' => $provider_user->avatar(),
+        //      ]);
+        // }
              
-             \Auth::Login($user,true);
+        //      \Auth::Login($user,true);
+        //      return redirect('/');
+        $user = Socialite::driver('google')->stateless()->user();
+        
+         $user = User::firstOrCreate([
+             'name' =>$user->getName(),
+             'email' => $user->getEmail(),
+             'provider_id' => $user->getId(),
+             ]);
+             
+             Auth::Login($user,true);
              return redirect('/');
         // $user->token;
     }
