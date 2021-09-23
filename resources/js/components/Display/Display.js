@@ -7,13 +7,13 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
 　　back: {
-　　  background: '#EBEFF3',
+　　  background: 'white',
 　　  padding: '50px 20px',
 　　},
 　　char: {
 　　    marginBottom: '50px',
-　　    textDecoration: 'underline',
-　　    color: '#1E8C99',
+　　    textShadow: '0 0 20px pink,0 0 20px pink',
+　　    color: 'red',
 　　},
 
 });
@@ -21,9 +21,11 @@ const useStyles = makeStyles({
 
 export default function Display(){
     const classes = useStyles();
+    
     return(
         <div>
            <div className={classes.back}>
+              <div className="animation__back">
                 <Typography 
                       className={classes.char}
                       variant="h2"
@@ -31,6 +33,7 @@ export default function Display(){
                      >
                   Access To Real Japan
                 </Typography>
+               </div>
            </div>
            <div >
               <Display_display/>
@@ -41,6 +44,7 @@ export default function Display(){
         </div>
         );
 }
+
 
 
 
