@@ -109,7 +109,10 @@ export default function Quize() {
                       </div>　
                 </div>
                 <div className={classes.right}>
-                    <LaQuestion nextStep={nextStep}/>
+                    <LaQuestion 
+                    nextStep={nextStep}
+                    activeStep={activeStep}
+                    />
                 </div>
             </div>
         </div>

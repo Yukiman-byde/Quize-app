@@ -11,7 +11,11 @@ import FormLabel from '@material-ui/core/FormLabel';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      margin: theme.spacing(5),
+      paddingRight: theme.spacing(40),
+      paddingLeft: theme.spacing(40),
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
+      margin: theme.spacing(10),
     },
   },
   text: {
@@ -25,12 +29,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function LaQuestion({nextStep}){
+export default function LaQuestion({nextStep, activeStep}){
     const classes = useStyles();
     const [value, setValue] = useState();
     const [question, setQuestion] = useState([]);
     const [ token, setToken ]= useState();
-    const[answer, setAnswer] = useState();
+    const [answer, setAnswer] = useState();
+    const [length, setLength] = useState();
+    const [boolean, setBoolean] = useState(false);
     
     
     let num = window.location.pathname;
@@ -52,9 +58,16 @@ export default function LaQuestion({nextStep}){
     useEffect(() =>{
         axios.get('/question/quize/json/' + nombre).then(res =>{
             setQuestion(res.data);
+            setLength(res.data.length);
         });
     }, []);
     
+  useEffect(()=>{
+    if(length == activeStep){
+       setBoolean(true);
+    }
+  })
+
     return(
         <div>
              <div className={classes.choice}>
@@ -77,14 +90,17 @@ export default function LaQuestion({nextStep}){
                    })}
                 </form>
                 <div className={classes.root}>
+                {boolean && (
                     <Button 
                     type="submit"
                     variant="contained" 
                     color="primary"
                     form="send"
+                    sx={{transition: '1s'}}
                     >
                     回答する
                    </Button>
+                )}
                 </div>
             </div>
         </div> 
