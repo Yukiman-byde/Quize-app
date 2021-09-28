@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
            $this->call([
             //DisplaysTableSeeder::class,
             //CategoriesTableSeeder::class,
-            //QuizesTableSeeder::class,
+            QuizesTableSeeder::class,
             //TranscriptionTableSeeder::class,
-            Category_DisplayTableSeeder::class,
+            //Category_DisplayTableSeeder::class,
         ]);
     }
 }

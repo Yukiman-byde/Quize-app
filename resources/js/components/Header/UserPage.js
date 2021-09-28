@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,8 +20,6 @@ const useStyles = makeStyles({
       marginBottom: 0,
    },
    userbox:{
-      width: 1000,
-      height: 1000,
       textAlign: 'center',
       margin: '0 auto',
       padding: 30,
@@ -39,30 +38,50 @@ const useStyles = makeStyles({
 export default function UserPage({ users, id, name, picture, email, display}){
    const classes = useStyles();
    const [user, setUser] = useState([]);
-   const [post, setPost] = useState('');
-   const [pic, setPic] = useState('');
+   const [image, setImage] = useState();
    const [token, setToken] = useState();
    
-   const handleChange=(e)=>{
-      const files = e.target.value;
-    if(files.length > 0) {
-        var file = files[0];
-        var reader = new FileReader();
-        reader.onload = (e) => {
-            setPost([e.target.result]);
-        };
-          reader.readAsDataURL(file);
-   } else {
-        setPost(null);
-    }
-  };
+//    const handleChange=(e)=>{
+//       const files = e.target.value;
+//     if(files.length > 0) {
+//        var file = files[0];
+//        var reader = new FileReader();
+//        reader.onload = (e) => {
+//             setPost([e.target.result]);
+//        };
+//           reader.readAsDataURL(file);
+//    } else {
+//        setPost(null);
+//     }
+//  };
+
+ const handleChange=(e)=>{
+    setImage(e.target.files[0].name);
+ };
+ 
+ const handleSubmit=(e)=>{
+    const form = new FormData();
+    form.append('image', image);
+    form.append('csrf', token);
+   //console.log(form.getAll('csrf')); // ["karabiner", "peter"]
+
+    axios({
+       method: "post",
+       data: form,
+       url: "/user/image/",
+       headers: { "Content-Type": "multipart/form-data" },
+    }).then(res=>{
+       console.log(res.data);
+    }).catch(error=>{
+       console.log(error);
+    });
+};
 
     useEffect(()=>{
         let csrf = document.head.querySelector('meta[name="csrf-token"]').content;
         setToken(csrf);
     },[]);
-
-    let url = `/user/image/`;
+  //  let url = `/user/image/`;
    
 
    return (
@@ -80,17 +99,12 @@ export default function UserPage({ users, id, name, picture, email, display}){
                  margin: '0 auto',
                }}
             >
-            <form action={url} method="post" id="send" style={{display: 'flex'}}>
-             　<input className={classes.inputPicture} name="image"  value={post} onChange={(e)=>handleChange(e)}  placeholder="Set placeholder"  type="file"　/>
-              <input type="hidden" name="token" value={token} />
-            </form>
-              <button form="send">Set up</button>
           <hr />
          <div className={classes.result}>
          </div>
          </Box>
            <TableContainer component={Paper} sx={{ marginTop: 10, overFlow:'scroll', height: 500}}>
-            <Table sx={{ minWidth: 700, }} aria-label="simple table">
+            <Table sx={{ minWidth: 700 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
                   <TableCell>Quiz Name</TableCell>
@@ -120,12 +134,9 @@ export default function UserPage({ users, id, name, picture, email, display}){
       </div>
       );
 };
-//   <TextField
-//             className={classes.inputPicture}
-//             name="image"
-//             value={post}
-//             onChange={(e)=>setPost(e.target.value)} 
-//             placeholder="Set Picture"
-//             type="file"
-//             />
 
+         // <form id="send" style={{display: 'flex'}} >
+         //     　<input className={classes.inputPicture} name="image" onChange={(e)=>handleChange(e)}  placeholder="Set placeholder"  type="file" accept="image/*"/>
+         //        <input type="hidden" name="token" value={token} />
+         //    </form>
+         //     <button onClick={()=>handleSubmit()}>Set up</button>

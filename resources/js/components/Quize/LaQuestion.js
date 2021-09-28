@@ -11,8 +11,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
-      paddingRight: theme.spacing(40),
-      paddingLeft: theme.spacing(40),
+      paddingRight: theme.spacing(10),
+      paddingLeft: theme.spacing(10),
       paddingTop: theme.spacing(3),
       paddingBottom: theme.spacing(3),
       margin: theme.spacing(10),
@@ -59,6 +59,7 @@ export default function LaQuestion({nextStep, activeStep}){
         axios.get('/question/quize/json/' + nombre).then(res =>{
             setQuestion(res.data);
             setLength(res.data.length);
+            console.log(res.data);
         });
     }, []);
     
@@ -76,6 +77,7 @@ export default function LaQuestion({nextStep, activeStep}){
                   {question.map((i) => {
                    number++;
                     return(
+                    <div>
                        <FormControl component="fieldset" key={number}>
                          <FormLabel className={classes.text}><h3>{number}:{i.question}</h3></FormLabel>
                           <RadioGroup aria-label="quize" value={value} onChange={answer} onClick={nextStep}>
@@ -85,7 +87,9 @@ export default function LaQuestion({nextStep, activeStep}){
                               <input id="putin" type="hidden" value="" />
                               <input type="hidden" name="token" value={token} />
                           </RadioGroup>
-                      </FormControl>  
+                      </FormControl> 
+                      <br/>
+                     </div>
                         );
                    })}
                 </form>

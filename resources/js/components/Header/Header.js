@@ -73,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  userPage: {
+     width: '100%',
+  }
 }));
 
 
@@ -167,6 +170,7 @@ export default function Header (){
        </AppBar>
        {boolean && (
         <UserPage 
+        className={classes.userPage}
         name={name}
         picture={picture}
         email={email}

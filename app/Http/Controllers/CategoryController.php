@@ -32,7 +32,7 @@ class CategoryController extends Controller
      public function rudiment(Category $category, Display $display)
     {
          $category = $category->find(8);
-         $displays = $category->displays;
+         $displays = $category->displays()->get();
          return $displays->toJson();
     }
 

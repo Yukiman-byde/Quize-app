@@ -17,3 +17,5 @@ require('./components/Display/Index');
 require('./components/Footer/Index');
 require('./components/Show/Index');
 require('./components/Quize/Index');
+require('./components/Upload/Index');
+

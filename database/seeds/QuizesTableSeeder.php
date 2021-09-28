@@ -13,12 +13,12 @@ class QuizesTableSeeder extends Seeder
     {
          DB::table('quizzes')->insert(
             [
-            'question' => 'この動画で使われた、”えらい”を言い換えると次のうちどれですか',
-            'answear' => 1,
-            'choice1' => 'かなり、ものすごく',
-            'choice2' => '少しだけ',
-            'choice3' => 'ありありと',
-            'display_id' => 2,
+            'question' => '何に対してOopsと言ったのか？',
+            'answear' => 2,
+            'choice1' => "相手が赤い服を着ていること",
+            'choice2' => "空がきれいなこと　",
+            'choice3' => "お腹がすいていること",
+            'display_id' => 6,
             ]);
     }
 }

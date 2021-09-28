@@ -17,6 +17,7 @@
 //     print_r($app->get("key2"));
 // });
 
+
 //JSONファイル(一覧ページから)
 Route::get('/displays/json', 'DisplayController@json');
 Route::get('/displays/json/{id}', 'DisplayController@json');
@@ -30,6 +31,8 @@ Route::get('/transcription/json/{id}', 'DisplayController@trans');
 Route::get('/user/json/', 'UserController@user');
 Route::get('/user/history/json/', 'UserController@history');
 Route::get('/user/display/json/', 'UserController@display');
+ //試しに
+Route::get('/upload', 'UserController@upLoad');
 
 
 
@@ -44,12 +47,12 @@ Auth::routes();
 Route::get('display/home', 'HomeController@index')->name('home');
 
 Route::get('login/google', 
-           'Auth\LoginController@redirectToGoogle');
+          'Auth\LoginController@redirectToGoogle');
 Route::get('login/google/callback', 
-           'Auth\LoginController@handleGoogleCallback');
+          'Auth\LoginController@handleGoogleCallback');
 
 Route::get('/', function () {
-  return redirect('display/home');
+ return redirect('display/home');
 });
 
 //ページのルーティング
@@ -79,11 +82,13 @@ Route::get('/', function () {
  Route::post('/user/image/', 'DisplayController@userEdit');
  
 
-// Auth::routes();
+ 
 
-// Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 
 
-// Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
