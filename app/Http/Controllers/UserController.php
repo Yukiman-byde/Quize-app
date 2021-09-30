@@ -48,4 +48,9 @@ class UserController extends Controller
           return json_encode($array_display);
    }
    
+   public function upLoad(){
+ 
+      return view('Upload');
+   }
+   
 }

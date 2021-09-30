@@ -8,15 +8,20 @@ import axios from 'axios';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
 import Transcription from './Transcription.js';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+
 
 const useStyles = makeStyles((theme) => ({
-    all: {
-        display : 'flex',
-        background: '#C2EEFF',
-    },
+   header:{
+      position: 'fixed',
+      top: '0px',
+   },
+   all: {
+      background: '#C2EEFF',
+   },
     left: {
-        flex: '0.5',
-        marginTop: 150,
+        marginTop: 200,
     },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
@@ -28,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   right: {
-      flex: '0.5',
-  }
+      margin: theme.spacing(5),
+  },
 }));
 
 export default function Quize() {
@@ -80,13 +85,18 @@ export default function Quize() {
      const classes = useStyles();
         
     return (
-        <div>
-         <Header
-         nextStep={nextStep}
-         activeStep={activeStep}
-         />
-            <div className={classes.all}>
-                <div className={classes.left}>
+       <div>
+        <div className={classes.header}>
+            <Header
+            nextStep={nextStep}
+            activeStep={activeStep}
+            />
+        </div>
+        <div className={classes.all}>
+          <Box sx={{FlexGrow: 1}}>
+            <Grid container spacing={5}>
+               <Grid item xs={12} md={12}>
+                  <div className={classes.left}>
                      <Backdrop className={classes.backdrop} open={button} onClick={handleClose}>
                         <Procedure />
                       </Backdrop>
@@ -107,14 +117,19 @@ export default function Quize() {
                                  buttonTips={buttonTips}/>
                              </div>
                       </div>　
-                </div>
-                <div className={classes.right}>
-                    <LaQuestion 
-                    nextStep={nextStep}
-                    activeStep={activeStep}
-                    />
-                </div>
-            </div>
-        </div>
+                  </div>
+               </Grid>
+               <Grid item xs={12} md={12}>
+                   <div className={classes.right}>
+                       <LaQuestion 
+                       nextStep={nextStep}
+                       activeStep={activeStep}
+                       />
+                   </div>
+               </Grid>
+            </Grid>
+           </Box>
+         </div>
+      </div>
         );
 }

@@ -87,26 +87,20 @@ class DisplayController extends Controller
             return view('index');
         }
    //問題の回答をOutcomeページに送る。
-     public function outcome($id, Request $request, Quiz $quiz)
+     public function outcome($id, Request $request, Quiz $quiz, Category $category)
     {
-      //    $choices = $request->except(['token']);
-      
-      //    $dejas = [];
-      //  foreach($choices as $question => $choice) {
-      //     $answer = Quiz::where('question', $question)->value('answear');
-      //     $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
-      //     array_push($dejas, $deja);
-      //  }
-      //    $category = New Category;
-      //    $info = $category->find($id);
-         
-      //    $category = $category->find($id);
-      //    $categories = $category->displays;
       $count = 0;
       $corrects = [];
       $options = [];
       
       $choices = $request->except(['token']);
+      
+      $video = new Display;
+      $name = $video->find($id)->categories()->value('name');
+      $sub_name = $video->find($id)->categories()->value('sub_name');
+      $displays = $video->find($id)->categories()->get();
+      $num = $video->find($id)->category_id;
+      $displays = $category->find($num)->displays()->get();
       
       foreach($choices as $question => $choice) {
          $answer = Quiz::where('question', $question)->value('answear');
@@ -117,46 +111,40 @@ class DisplayController extends Controller
          array_push($options, $option);
           if($answer != $choice){
           }else {
-              $count++;
+             $count++;
           }
       }
+      
         $solveNumber = $count;
         
-      $display = new Display;
-      $display = $display->find($id)->quizzes()->get();
-      //dd(count($display));
-      $display = count($display);
-      
-      $history = new History;
-      
-      $history->wholeNumber = $display;
-     
-      $history->solvedNumber = $solveNumber;
-      
-      $history->display_id = Display::find($id)->value('id');
-      
-      $history->user_id = Auth::user()->id;
-      
-      $history->save();
-      
-      $history->displays()->attach($id);
-
-      $choices = $request->except(['token']);
-      
-      $dejas = [];
-     foreach($choices as $question => $choice) {
-        $answer = Quiz::where('question', $question)->value('answear');
-        $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
-        array_push($dejas, $deja);
-     }
+         $display = new Display;
+         $display = $display->find($id)->quizzes()->get();
+         //dd(count($display));
+         $display = count($display);
+         
+         $history = new History;
+         
+         $history->wholeNumber = $display;
         
-      $category = New Category;
-      $info = $category->find($id);
-      
-      $category = $category->find($id);
-      $categories = $category->displays;
-    
-      return view('outcome', ['categories' => $categories, 'dejas' => $dejas, 'info' => $info]);
+         $history->solvedNumber = $solveNumber;
+         
+         $history->display_id = Display::find($id)->value('id');
+         
+         $history->user_id = Auth::user()->id;
+         
+         $history->save();
+         
+         $history->displays()->attach($id);
+   
+         $choices = $request->except(['token']);
+         
+         $dejas = [];
+       foreach($choices as $question => $choice) {
+          $answer = Quiz::where('question', $question)->value('answear');
+          $deja = array('question' => $question, 'selected' => $choice, 'answer'=> $answer);
+          array_push($dejas, $deja);
+       }
+      return view('outcome', ['displays' => $displays, 'dejas' => $dejas, 'name' => $name, 'sub_name' => $sub_name]);
     }
     /**
      * Store a newly created resource in storage.
@@ -197,14 +185,16 @@ class DisplayController extends Controller
     
        public function userEdit(Request $request)
        {
-         
+           //$request = $request->image;
              $user = new User;
+          
+             
           //   $form = $request->all();
              //s3アップロード開始
-             $image = $request->file('image');
-             dd($image);
+             //$image = $request->file('image');
+             //dd($image);
       // バケットの`quizees-app`フォルダへアップロード
-            $path = Storage::disk('s3')->putFile('quizees-app', $image, 'public');
+            $path = Storage::disk('s3')->putFile('/quizees-app/', $request->image, 'public');
       // アップロードした画像のフルパスを取得
             $user->picture = Storage::disk('s3')->url($path);
 
@@ -215,30 +205,42 @@ class DisplayController extends Controller
    
     
    public function search(Category $category,Display $display, $name){
+
        //渡されてきたnameはdisplayの中も配列なので同様に,配列にしてから処理したほうがいい。
-       $name = 
+       $display_name = 
           [
            'name' => $name,
           ];
-        $description = 
-            [
-             'description' => $name
-            ];
-      $msg = '該当するビデオはありませんでした。';
-     $display = $display->categories()->get();
-
-     
-      if(!empty($name))
+      $category_name =
+         [
+         'name' => $name,
+         ];
+      $msg = '';
+      if(!empty($display))
           {
-            $displays = Display::where('name', 'like', $name['name'])
-                                 ->orWhere('description', 'like', $name['name'])->get();
-            
-            //$displays = $display->where(function($query){
-               //$query->where('name', 'like', $name['name'])->orWhere('description', 'like', $description['description']);
-            //});
+           // $display = $display->categories()->get();
+            $displays = Display::where('name', 'like', $display_name['name'])
+                                 ->orWhere('description', 'like', $display_name['name'])->get();
+                             $categories = '';
+                             $sub_name = '';
           }
-   
-         return view('search', ['displays' => $displays, 'msg' => $msg, 'category' => $category]);
+          if(!count($displays) > 0){
+              $tag = new Category;
+             $id = $tag->where('name', 'like', $category_name['name'])->value('id');
+             $sub_name = $tag->where('name', 'like', $category_name['name'])->value('sub_name');
+            
+             $cat = $category->find($id);
+             if(is_null($cat)){
+                 $msg = '該当するビデオはありませんでした。';
+             }else {
+                $categories = $cat->displays()->get();
+             }
+          }
+              // $display = Display::all();
+             
+
+ 
+            return view('search', ['displays' => $displays, 'categories' => $categories, 'sub_name' => $sub_name, 'msg' => $msg, 'category' => $category]);
      //$display = $display->where('name', 'LIKE', "%$name%");
    }
 }

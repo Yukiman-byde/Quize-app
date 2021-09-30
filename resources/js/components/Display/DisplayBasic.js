@@ -8,6 +8,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import Box from '@mui/material/Box';
 
 const useStyles = makeStyles((theme) => ({
    root:{
@@ -36,65 +37,69 @@ export default function DisplayBasic(){
          setJapanese(res.data[2]);
       });
    },[]);
+   console.log(tokyo);
    return (
       <div>
-       <Grid container xs={12} className={classes.root}>
-          <Grid item xs={6}>
-      <a href="/display/Rudiment/10" style={{textDecoration: 'none'}}>
-             <Card>
-               <CardActionArea>
-                    <CardMedia
-                    className={classes.huge}
-                    image={japan.thumbnail}
-                    >
-                     <CardContent>
-                           <Typography variant="h3" component="h3" style={{color: '#fff'}}>
-                             {japan.name} 
-                           </Typography>
-                     </CardContent>
-                    </CardMedia>
-               </CardActionArea>
-             </Card>
-      </a>
-          </Grid>
-          <Grid item xs={5}>
-             <Grid>
-               <a href="/display/Rudiment/11" style={{textDecoration: 'none'}}>
-             <Card item xs={2.5} className={classes.children} style={{marginBottom: '30px'}} >
-               <CardActionArea>
-                    <CardMedia
-                    className={classes.huge}
-                    image={japanese.thumbnail}
-                    >
-                     <CardContent>
-                           <Typography variant="h3" component="h3" style={{color: '#fff'}}>
-                              {japanese.name}
-                           </Typography>
-                     </CardContent>
-                    </CardMedia>
-               </CardActionArea>
-             </Card>
-             </a>
+         <Box sx={{FlexGrow: 1}}>
+          <Grid container className={classes.root}>
+             <Grid md={12} xs={12} sm={12} lg={6}>
+         <a href="/display/Rudiment/10" style={{textDecoration: 'none'}}>
+                <Card>
+                  <CardActionArea>
+                       <CardMedia
+                       className={classes.huge}
+                       image={japanese.thumbnail}
+                       >
+                        <CardContent>
+                              <Typography variant="h3" component="h3" style={{color: '#fff'}}>
+                                {japanese.name} 
+                              </Typography>
+                        </CardContent>
+                       </CardMedia>
+                  </CardActionArea>
+                </Card>
+         </a>
              </Grid>
-             <Grid>
-               <a href="/display/Rudiment/9" style={{textDecoration: 'none'}}>
-            <Card item xs={2.5} className={classes.children} >
-               <CardActionArea>
-                    <CardMedia
-                    className={classes.huge}
-                    image={tokyo.thumbnail}
-                    >
-                     <CardContent>
-                           <Typography variant="h3" component="h3" style={{color: '#fff'}}>
-                              {tokyo.name}
-                           </Typography>
-                     </CardContent>
-                    </CardMedia>
-               </CardActionArea>
-             </Card>
-             </a>
+             <Grid item md={12} sx={12} xs={12} lg={5} >
+                <Grid item md={12} sx={12} xs={12} lg={2.5}>
+                  <a href="/display/Rudiment/11" style={{textDecoration: 'none'}}>
+                <Card  className={classes.children} style={{marginBottom: '30px'}} >
+                  <CardActionArea>
+                       <CardMedia
+                       className={classes.huge}
+                       image={japan.thumbnail}
+                       >
+                        <CardContent>
+                              <Typography variant="h3" component="h3" style={{color: '#fff'}}>
+                                 {japan.name}
+                              </Typography>
+                        </CardContent>
+                       </CardMedia>
+                  </CardActionArea>
+                </Card>
+                </a>
+                </Grid>
+                <Grid item md={12} sm={12} xs={12} lg={2.5}>
+                  <a href="/display/Rudiment/9" style={{textDecoration: 'none'}}>
+               <Card  className={classes.children} >
+                  <CardActionArea>
+                       <CardMedia
+                       className={classes.huge}
+                       image={tokyo.thumbnail}
+                       >
+                        <CardContent>
+                              <Typography variant="h3" component="h3" style={{color: '#fff'}}>
+                                 {tokyo.name}
+                              </Typography>
+                        </CardContent>
+                       </CardMedia>
+                  </CardActionArea>
+                </Card>
+                </a>
+                </Grid>
              </Grid>
           </Grid>
-       </Grid>
-      </div>)
+         </Box>
+      </div>
+      );
 }

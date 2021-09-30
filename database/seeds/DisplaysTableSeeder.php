@@ -13,11 +13,11 @@ class DisplaysTableSeeder extends Seeder
     {
         DB::table('displays')->insert(
             [
-            'name' => '日本語レッスン✍JLPT N5 Lesson 1-1 Conversation「わたしはがくせいです」 I am a student.【日本語能力試験N5】',
-            'description' => '日本語能力試験 日本語eラーニング JLPT対策',
-            'video' => 'https://www.youtube.com/embed/u1g1hWLZ67I',
-            'thumbnail' => 'https://i.ytimg.com/vi/u1g1hWLZ67I/sddefault.jpg',
-            'transcription_id' => 10,
+            'name' => 'Where tradition meets the future',
+            'description' => 'Have a fun and imagine your next trip in Japan!',
+            'video' => 'https://www.youtube.com/embed/WLIv7HnZ_fE',
+            'thumbnail' => 'https://pixabay.com/photos/japan-mountain-volcano-fuji-sky-4287832/',
+            'transcription_id' => 9,
             'category_id' => 8,
             ]);
     }

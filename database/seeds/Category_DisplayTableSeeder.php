@@ -13,8 +13,8 @@ class Category_DisplayTableSeeder extends Seeder
     {
         DB::table('category_display')->insert(
             [
-            'display_id' => 11,
-            'category_id' => 8,
+            'display_id' => 8,
+            'category_id' => 14,
             ]);
     }
 }

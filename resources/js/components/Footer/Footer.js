@@ -1,7 +1,5 @@
 import React from 'react';
 import FooterInformation from './FooterInformation';
-import FooterIcon from './FooterIcon';
-import FooterItem from './FooterItem';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,25 +24,26 @@ const useStyles = makeStyles({
         background: '#fefefe',
         display: 'flex',
     },
-})
+    couloir: {
+        color: '#fefefe',
+        flex: '0.2',
+        textDecoration: 'underline',
+        marginTop: '30px',
+        textShadow: '0 0 10px #fefefe,0 0 15px #fefefe',
+        flexGrow: 1,
+    },
+});
 
 export default function Footer(){
     const classes = useStyles();
     return(
      <div>
         <div className={classes.cancel}>
-             <div 
-               className={classes.footer}
-               >
-                 <FooterItem />
+             　<div className={classes.footer}>
+                  <h3 className={classes.couloir}>Learning Japanese</h3>
                </div>
                <FooterInformation />
         </div>
-        <Container className={classes.foot} fixed>
-              <FooterIcon Icon={YouTubeIcon} />
-              <FooterIcon Icon={InstagramIcon} />
-              <FooterIcon Icon={RssFeedIcon} />
-        </Container>
     </div>
         );
 }
