@@ -32,7 +32,7 @@
   #### カテゴリー欄のスクリーンです
     <img width="500" alt="スクリーンショット 2021-10-07 14 41 57" src="https://user-images.githubusercontent.com/86790065/136339118-dc3acb6f-126a-42b3-93b2-470d056675f6.png">
     
-　　 #### カテゴリーお笑いの詳細画面です
+　　
     <img width="500" alt="スクリーンショット 2021-10-07 14 42 22" src="https://user-images.githubusercontent.com/86790065/136339148-5c3e9ff3-637f-4456-9c34-c0933ecfec99.png">
     
   #### クイズ詳細ページです
