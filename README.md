@@ -32,7 +32,10 @@
    ##### クイズ詳細画面です
    <img width="500" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136343872-5650b2a7-f337-4e66-ae68-163110ca600c.png">
    
-   <img width="1440" alt="スクリーンショット 2021-10-07 14 44 09" src="https://user-images.githubusercontent.com/86790065/136344158-79deb86c-d77b-41ea-9fab-59a31d901a7e.png">
+   <img width="500" alt="スクリーンショット 2021-10-07 14 44 09" src="https://user-images.githubusercontent.com/86790065/136344158-79deb86c-d77b-41ea-9fab-59a31d901a7e.png">
+   
+   <img width="500" alt="スクリーンショット 2021-10-07 14 41 49" src="https://user-images.githubusercontent.com/86790065/136344498-c3ad5878-8b99-4d5d-a0dd-64778be38e28.png">
+<img width="500" alt="スクリーンショット 2021-10-07 14 42 22" src="https://user-images.githubusercontent.com/86790065/136344520-acba08e9-317d-4a83-a7b3-3089569959fd.png">
 　
    
 
