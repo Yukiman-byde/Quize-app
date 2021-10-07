@@ -29,8 +29,10 @@
   　　　　　<img width="500" alt="loginScreen" src="https://user-images.githubusercontent.com/86790065/136335862-f76dbd78-5118-47b4-be38-67bfcb146365.png">
   ##### ログイン後のスクリーンです
   　　　　　<img width="500" alt="スクリーンショット 2021-10-07 14 41 34" src="https://user-images.githubusercontent.com/86790065/136339977-16595d6a-0d21-46ac-bc28-32d46fb798cb.png">
-   ##### 初心者用の画面です
+   ##### クイズ詳細画面です
    <img width="500" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136343872-5650b2a7-f337-4e66-ae68-163110ca600c.png">
+   
+   <img width="1440" alt="スクリーンショット 2021-10-07 14 44 09" src="https://user-images.githubusercontent.com/86790065/136344158-79deb86c-d77b-41ea-9fab-59a31d901a7e.png">
 　
    
 
