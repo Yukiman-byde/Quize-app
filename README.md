@@ -26,6 +26,18 @@
 ## デモ
 
   <img width="1440" alt="loginScreen" src="https://user-images.githubusercontent.com/86790065/136335862-f76dbd78-5118-47b4-be38-67bfcb146365.png">
+  <img width="1440" alt=“待ち受け 2021-10-07 14 41 34" src="https://user-images.githubusercontent.com/86790065/136336725-f27fe6c6-ba91-4f27-b154-c78da27386d6.png">
+
+　　　<img width="1440" alt=“初心者画面 2021-10-07 14 41 49" src="https://user-images.githubusercontent.com/86790065/136336916-c97fda59-e4a1-4d22-8a6a-b1a9840ddb0e.png">
+
+　　　<img width="1440" alt=“カテゴリー画面 2021-10-07 14 41 57" src="https://user-images.githubusercontent.com/86790065/136336991-5fc6603d-7795-47f8-ada7-ebd4d91922da.png">
+
+　　　　<img width="1440" alt=“カテゴリー詳細（お笑い） 2021-10-07 14 42 22" src="https://user-images.githubusercontent.com/86790065/136337446-ad0c41f7-7e37-4aae-aa17-85c7e6a8b193.png">
+  <img width="1440" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136338066-d1b8ed41-fe8c-4c83-b782-2d8f0ca77d61.png">
+　　　<img width="1440" alt="スクリーンショット 2021-10-07 14 43 11" src="https://user-images.githubusercontent.com/86790065/136338086-320dd827-443c-49c8-a90c-55697eeaecb9.png">
+<img width="1440" alt="スクリーンショット 2021-10-07 14 43 24" src="https://user-images.githubusercontent.com/86790065/136338106-d1946960-027e-4f9a-a15d-c6faf1b8594a.png">
+<img width="1440" alt="スクリーンショット 2021-10-07 14 44 09" src="https://user-images.githubusercontent.com/86790065/136338143-caab0e64-9b9a-4afd-ae4d-bbb187ef3fdf.png">
+<img width="1440" alt="スクリーンショット 2021-10-07 14 44 15" src="https://user-images.githubusercontent.com/86790065/136338161-a3657fb9-8d5b-43e1-b78b-52712c5a82d4.png">
 
    
 
