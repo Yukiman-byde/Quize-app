@@ -1,78 +1,37 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## アプリケーション名
+　　　　　日本上達アプリ
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## アプリケーション概要
+　　　　　一通り基礎をマスターした日本語学習者向けのアプリケーションです。
+     
+## URl
+　　　　　https://languagelearneradvance.herokuapp.com/
+     
+## テスト用アカウント
+　　　　　　google-login-account: tesutoqingshui0@gmail.com
+   password : examtest
+## 利用方法
+   まず自分のすでに持っているgoogle accountでログインします。それから好みのカテゴリーから面白そうな項目をクリックして、動画のあるページにアクセスします。ページ内には30秒ほどの短い動画が一つと、３〜６問の理解度を当問題が用意されています。やり方がわからない場合は手順ボタンを押すと出てくるようになっています。また音声が聞き取れずわからない、どう調べたらいいかわからない時のために下にTranscriptionボタンを用意しました。またその中でもキーワードとなる単語はあらかじめ用意されているのでTipsボタンを押すと情報を入手できます。　問題を全て解き終えてから回答するボタンを押してください。　回答が表示されるページには、おすすめのカテゴリーの動画を乗っけています。またユーザーページを開くと自分の今までの成績がわかるようになっているので、もう一度解きたい、聞きたい動画の名前を知ることができ、上部にある検索機能で探すことができます。
+   
+## 目指した課題解決
+　　　　　　　日本人が日常生活で見る題材に言語学習として触れることで、スピーキング力を生かすリスニング学習を促進すること。（会話の話題や、方言、俗語など）　
 
-## About Laravel
+## 実装した機能
+　　　　　　　海外の学校にいたときGoogle Accountを使うことが頻繁だったので、Google Accountログイン機能をつけました。　　ログインしたばかりの方々のために簡単に上級者、初心者で分けて動画コンテンツを見れるようにしました。クイズの解き忘れを防ぐためにボタンは最初隠しました。問題を解くたびにヘッダーのゲージをあげ、全て溜まった時にボタンを出すような設計にしました。やり方や勉強のコツなどを載せたProcedureや音声を文字化したTranscriptionボタンなどをつけました。回答した問題はデータベースの中でヒストリーとして保持し、ユーザーの成績としてユーザーアイコンを押したときに表示されるようになっています。また見返したい方々のためにビデオの名前や、キーワードを入れたりすると動画コンテンツを表示するための検索機能をつけました。メール機能は、使用者さんからのアプリの改善案や苦情などのアイデアを受け取るためにつけました。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 実装予定の機能
+　　　　　　　わからなかった単語を記録する単語帳のような機能及び、数日後に復習を忘れないために通知を送りもう一度単語を見ることを忘れないようにする機能をつけたいと思います。
+    またそのわからない単語リストを集めることで、登録された単語の多いもの順に「みんなの単語帳」という名目でアプリ専用単語帳を作りたいと思います。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## デモ
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+  ![ログイン画面、テストアカウントでログイン](/img/loginScreen.png) 
 
-## Learning Laravel
+   
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
