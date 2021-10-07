@@ -25,25 +25,26 @@
 
 ## デモ
 
-  　　　　　<img width="700" alt="loginScreen" src="https://user-images.githubusercontent.com/86790065/136335862-f76dbd78-5118-47b4-be38-67bfcb146365.png">
-       ####ログイン画面です
-  　　　　　<img width="1440" alt="スクリーンショット 2021-10-07 14 41 34" src="https://user-images.githubusercontent.com/86790065/136339977-16595d6a-0d21-46ac-bc28-32d46fb798cb.png">
-       ####ログイン後のスクリーンです。
-    <img width="700" alt="スクリーンショット 2021-10-07 14 41 57" src="https://user-images.githubusercontent.com/86790065/136339118-dc3acb6f-126a-42b3-93b2-470d056675f6.png">
-       ####カテゴリー欄のスクリーンです。
-    <img width="700" alt="スクリーンショット 2021-10-07 14 42 22" src="https://user-images.githubusercontent.com/86790065/136339148-5c3e9ff3-637f-4456-9c34-c0933ecfec99.png">
-       ####カテゴリーお笑いの詳細画面です。
-      <img width="700" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136338066-d1b8ed41-fe8c-4c83-b782-2d8f0ca77d61.png">
-       ####クイズ詳細ページです。
-      <img width="700" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136338066-d1b8ed41-fe8c-4c83-b782-2d8f0ca77d61.png">
-       ####クイズページ1です。
-       <img width="700" alt="スクリーンショット 2021-10-07 14 43 11" src="https://user-images.githubusercontent.com/86790065/136338086-320dd827-443c-49c8-a90c-55697eeaecb9.png">
-       ####クイズページ2です
-    <img width="700" alt="スクリーンショット 2021-10-07 14 43 24" src="https://user-images.githubusercontent.com/86790065/136338106-d1946960-027e-4f9a-a15d-c6faf1b8594a.png">
-      ####ユーザーページです。
-    <img width="700" alt="スクリーンショット 2021-10-07 14 44 09" src="https://user-images.githubusercontent.com/86790065/136338143-caab0e64-9b9a-4afd-ae4d-bbb187ef3fdf.png">
-      ####Email送信ページです。
-    <img width="700" alt="スクリーンショット 2021-10-07 14 44 15" src="https://user-images.githubusercontent.com/86790065/136338161-a3657fb9-8d5b-43e1-b78b-52712c5a82d4.png">
+  ##### ログインページです
+  　　　　　<img width="500" alt="loginScreen" src="https://user-images.githubusercontent.com/86790065/136335862-f76dbd78-5118-47b4-be38-67bfcb146365.png">
+  ##### ログイン後のスクリーンです。
+  　　　　　<img width="500" alt="スクリーンショット 2021-10-07 14 41 34" src="https://user-images.githubusercontent.com/86790065/136339977-16595d6a-0d21-46ac-bc28-32d46fb798cb.png">
+  #### カテゴリー欄のスクリーンです。
+    <img width="500" alt="スクリーンショット 2021-10-07 14 41 57" src="https://user-images.githubusercontent.com/86790065/136339118-dc3acb6f-126a-42b3-93b2-470d056675f6.png">
+　　 #### カテゴリーお笑いの詳細画面です。
+    <img width="500" alt="スクリーンショット 2021-10-07 14 42 22" src="https://user-images.githubusercontent.com/86790065/136339148-5c3e9ff3-637f-4456-9c34-c0933ecfec99.png">
+  #### クイズ詳細ページです。
+      <img width="500" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136338066-d1b8ed41-fe8c-4c83-b782-2d8f0ca77d61.png">
+  #### クイズページ１です。
+      <img width="500" alt="スクリーンショット 2021-10-07 14 42 40" src="https://user-images.githubusercontent.com/86790065/136338066-d1b8ed41-fe8c-4c83-b782-2d8f0ca77d61.png">
+  #### クイズページ２です。
+       <img width="500" alt="スクリーンショット 2021-10-07 14 43 11" src="https://user-images.githubusercontent.com/86790065/136338086-320dd827-443c-49c8-a90c-55697eeaecb9.png">
+  #### ユーザーページです。
+    <img width="500" alt="スクリーンショット 2021-10-07 14 43 24" src="https://user-images.githubusercontent.com/86790065/136338106-d1946960-027e-4f9a-a15d-c6faf1b8594a.png">
+  #### Email送信ページです。
+    <img width="500" alt="スクリーンショット 2021-10-07 14 44 09" src="https://user-images.githubusercontent.com/86790065/136338143-caab0e64-9b9a-4afd-ae4d-bbb187ef3fdf.png">
+   
+    <img width="500" alt="スクリーンショット 2021-10-07 14 44 15" src="https://user-images.githubusercontent.com/86790065/136338161-a3657fb9-8d5b-43e1-b78b-52712c5a82d4.png">
 
    
 
